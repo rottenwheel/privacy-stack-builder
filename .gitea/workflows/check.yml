@@ -35,3 +35,32 @@ jobs:
 
       - name: Syntax-check site JavaScript
         run: node --check site/app.js && node --check site/data.js
+
+  deploy:
+    needs: build
+    if: gitea.event_name == 'push' && gitea.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rebuild site/data.js
+        run: pip install --disable-pip-version-check pyyaml && python3 build.py
+
+      - name: Sync site/ to privacystack.rocks
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+        run: |
+          if [ -z "$DEPLOY_SSH_KEY" ]; then
+            echo "::warning::DEPLOY_SSH_KEY secret not set, skipping deploy"
+            exit 0
+          fi
+          command -v rsync >/dev/null || (apt-get update -qq && apt-get install -y -qq rsync)
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          # Pinned host key of the HestiaCP server (ED25519 SHA256:RxtKxUaMZZexFC4KeXiIFbWCJ2KUBP1hYXxMpsTAFDk).
+          echo '89.167.107.136 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJLMRvA+v+2tfxT965/1Zyu1CotIFahe1ALva6soZ7lh' > ~/.ssh/known_hosts
+          # The key is restricted server-side with rrsync to the docroot, so "/" is the docroot.
+          rsync -az --delete \
+            -e "ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes" \
+            site/ alex@89.167.107.136:/

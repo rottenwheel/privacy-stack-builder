@@ -71,8 +71,17 @@ setup for one.
 
 ## Deploy
 
-Production is https://privacystack.rocks, a plain nginx vhost. Deploy is a
-file copy of `site/` after a build:
+Production is https://privacystack.rocks, a plain nginx vhost, with a Tor
+mirror at http://73zofwr6jvnvriyd5mxq5oneli657btt5pi5xiwqvys55fa7pozmhdad.onion
+served from the same docroot.
+
+Every push to `main` that passes the check job is deployed by the `deploy`
+job in `.gitea/workflows/check.yml`. It rsyncs `site/` over SSH with a key
+that the server restricts (via `rrsync`) to the docroot; the private key is
+the repository secret `DEPLOY_SSH_KEY`. The server host key is pinned in the
+workflow.
+
+Manual deploy, if ever needed:
 
 ```
 python3 build.py
