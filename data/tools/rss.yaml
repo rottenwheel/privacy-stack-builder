@@ -1,0 +1,36 @@
+- id: feeder
+  name: Feeder
+  category: rss
+  platforms: [android]
+  jurisdiction: none
+  url: https://github.com/spacecowboy/Feeder
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: Local Android reader, no sync service needed.
+  warn: No cross-device sync.
+- id: miniflux
+  name: Miniflux
+  category: rss
+  platforms: [linux, web]
+  jurisdiction: none
+  url: https://miniflux.app
+  criteria: [foss, selfhost, no-telemetry]
+  why: Minimal self-hosted reader, single Go binary.
+  warn: "Opinionated: no themes, no plugins."
+- id: freshrss
+  name: FreshRSS
+  category: rss
+  platforms: [linux, web]
+  jurisdiction: none
+  url: https://freshrss.org
+  criteria: [foss, selfhost, no-telemetry]
+  why: Self-hosted with Google Reader API, so most mobile clients connect.
+  warn: PHP stack to maintain.
+- id: netnewswire
+  name: NetNewsWire
+  category: rss
+  platforms: [macos, ios]
+  jurisdiction: US
+  url: https://netnewswire.com
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: Best native Apple reader, free, no tracking.
+  warn: Apple only.

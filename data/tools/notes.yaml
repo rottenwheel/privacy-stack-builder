@@ -34,3 +34,12 @@
   criteria: [foss, e2ee, selfhost, audit]
   why: Rich editor with E2EE by default and self-host option.
   warn: Account required for sync.
+- id: logseq
+  name: Logseq
+  category: notes
+  platforms: [android, ios, linux, macos, windows]
+  jurisdiction: US
+  url: https://logseq.com
+  criteria: [foss, no-account, offline]
+  why: Outliner with backlinks, plain Markdown files on disk. Sync with Syncthing.
+  warn: Official sync is paid and was in beta for years; use your own sync.

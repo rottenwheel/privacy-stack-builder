@@ -1,0 +1,18 @@
+- id: heliboard
+  name: HeliBoard
+  category: keyboard
+  platforms: [android]
+  jurisdiction: none
+  url: https://github.com/Helium314/HeliBoard
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: OpenBoard successor. No network permission at all.
+  warn: Glide typing needs a proprietary library you add yourself.
+- id: florisboard
+  name: FlorisBoard
+  category: keyboard
+  platforms: [android]
+  jurisdiction: none
+  url: https://florisboard.org
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: Modern FOSS keyboard, no network permission.
+  warn: Still beta; word suggestions limited.

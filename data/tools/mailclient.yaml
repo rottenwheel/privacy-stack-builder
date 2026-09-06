@@ -1,0 +1,27 @@
+- id: thunderbird
+  name: Thunderbird
+  category: mailclient
+  platforms: [linux, macos, windows]
+  jurisdiction: US
+  url: https://www.thunderbird.net
+  criteria: [foss, e2ee, offline]
+  why: Built-in OpenPGP, works with any IMAP provider including self-hosted.
+  warn: Telemetry on by default; disable in settings.
+- id: thunderbird-android
+  name: Thunderbird for Android
+  category: mailclient
+  platforms: [android]
+  jurisdiction: US
+  url: https://www.thunderbird.net/mobile/
+  criteria: [foss, offline]
+  why: K-9 Mail continued. Any IMAP account, OpenPGP via OpenKeychain.
+  warn: Android only.
+- id: fairemail
+  name: FairEmail
+  category: mailclient
+  platforms: [android]
+  jurisdiction: NL
+  url: https://email.faircode.eu
+  criteria: [foss, e2ee, no-telemetry, offline]
+  why: "Privacy-first Android client: blocks tracking pixels, reformats mail, PGP and S/MIME."
+  warn: Dense settings. Some features behind a small one-time payment.

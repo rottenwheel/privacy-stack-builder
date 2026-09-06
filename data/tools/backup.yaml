@@ -1,0 +1,27 @@
+- id: restic
+  name: restic
+  category: backup
+  platforms: [linux, macos, windows]
+  jurisdiction: none
+  url: https://restic.net
+  criteria: [foss, e2ee, no-account, offline]
+  why: Encrypted, deduplicated backups to any target, single binary.
+  warn: CLI. Automate it yourself.
+- id: borg
+  name: BorgBackup (+ Vorta)
+  category: backup
+  platforms: [linux, macos]
+  jurisdiction: none
+  url: https://www.borgbackup.org
+  criteria: [foss, e2ee, no-account, offline]
+  why: Encrypted dedup backups with Vorta as GUI. Cheap remote via BorgBase or your own SSH box.
+  warn: No Windows. Repo must be Borg-served or local.
+- id: kopia
+  name: Kopia
+  category: backup
+  platforms: [linux, macos, windows]
+  jurisdiction: none
+  url: https://kopia.io
+  criteria: [foss, e2ee, no-account, offline]
+  why: restic-like with a GUI and built-in scheduling.
+  warn: Younger than restic and Borg.

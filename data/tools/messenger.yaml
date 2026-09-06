@@ -52,3 +52,30 @@
   criteria: [foss, e2ee, no-phone, selfhost, audit]
   why: Federated, self-hostable, bridges to everything.
   warn: Metadata (room membership, reactions) is not encrypted and spreads across federated servers.
+- id: deltachat
+  name: Delta Chat
+  category: messenger
+  platforms: [android, ios, linux, macos, windows]
+  jurisdiction: DE
+  url: https://delta.chat
+  criteria: [foss, e2ee, no-phone, selfhost, audit]
+  why: Chat over email. Any address works, or use its own chatmail relays with no signup data.
+  warn: Metadata (who mails whom) visible to mail servers unless both use chatmail relays.
+- id: molly
+  name: Molly
+  category: messenger
+  platforms: [android]
+  jurisdiction: none
+  url: https://molly.im
+  criteria: [foss, e2ee, audit, repro]
+  why: "Hardened Signal fork: encrypted database at rest, Tor via Orbot, no Google push in the FOSS build."
+  warn: Still Signal's network, so still needs a phone number.
+- id: cwtch
+  name: Cwtch
+  category: messenger
+  platforms: [android, linux, macos, windows]
+  jurisdiction: CA
+  url: https://cwtch.im
+  criteria: [foss, e2ee, no-phone, no-account, offline]
+  why: Every conversation is a Tor onion service. No servers, no metadata.
+  warn: Both sides online for delivery unless you run an untrusted relay server.

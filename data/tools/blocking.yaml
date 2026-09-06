@@ -1,0 +1,27 @@
+- id: ublock
+  name: uBlock Origin
+  category: blocking
+  platforms: [linux, macos, windows, android]
+  jurisdiction: none
+  url: https://github.com/gorhill/uBlock
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: The blocker. Firefox-based browsers keep the full version.
+  warn: Chromium Manifest V3 forces the weaker uBlock Origin Lite.
+- id: adguard-home
+  name: AdGuard Home
+  category: blocking
+  platforms: [linux]
+  jurisdiction: CY
+  url: https://adguard.com/adguard-home/overview.html
+  criteria: [foss, selfhost, no-account, no-telemetry]
+  why: Network-wide DNS blocking with DoH/DoT upstreams built in.
+  warn: Company behind it is Cyprus-registered with Russian roots; server code is FOSS.
+- id: pihole
+  name: Pi-hole
+  category: blocking
+  platforms: [linux]
+  jurisdiction: none
+  url: https://pi-hole.net
+  criteria: [foss, selfhost, no-account, no-telemetry]
+  why: Classic network-wide blocker, huge community lists.
+  warn: Needs a separate resolver (Unbound) for encrypted upstream DNS.

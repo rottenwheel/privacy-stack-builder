@@ -1,0 +1,36 @@
+- id: syncthing
+  name: Syncthing
+  category: files
+  platforms: [android, linux, macos, windows]
+  jurisdiction: NL
+  url: https://syncthing.net
+  criteria: [foss, e2ee, no-account, selfhost, no-telemetry, offline]
+  why: Device-to-device sync with no server in the middle. Nothing to host, nothing to trust.
+  warn: Not a backup; deletions sync too. Official Android app discontinued, use Syncthing-Fork.
+- id: nextcloud
+  name: Nextcloud
+  category: files
+  platforms: [android, ios, linux, macos, windows, web]
+  jurisdiction: DE
+  url: https://nextcloud.com
+  criteria: [foss, selfhost, no-telemetry]
+  why: Self-hosted Dropbox plus calendar, contacts and the WebDAV endpoint Joplin needs.
+  warn: Server sees plaintext unless you enable its E2EE folder feature. You maintain it.
+- id: cryptomator
+  name: Cryptomator
+  category: files
+  platforms: [android, ios, linux, macos, windows]
+  jurisdiction: DE
+  url: https://cryptomator.org
+  criteria: [foss, e2ee, no-account, offline, audit]
+  why: Encrypts vaults client-side so any cloud becomes a dumb blob store.
+  warn: Mobile apps cost a one-time fee. File names encrypted, sizes are not.
+- id: proton-drive
+  name: Proton Drive
+  category: files
+  platforms: [android, ios, macos, windows, web]
+  jurisdiction: CH
+  url: https://proton.me/drive
+  criteria: [foss, e2ee, audit]
+  why: Hosted E2EE storage if you do not want to run anything.
+  warn: Proton account required. Linux client lags behind.

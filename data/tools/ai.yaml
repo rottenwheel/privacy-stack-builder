@@ -1,0 +1,27 @@
+- id: ollama
+  name: Ollama
+  category: ai
+  platforms: [linux, macos, windows]
+  jurisdiction: US
+  url: https://ollama.com
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: Run open-weight models locally with one command. Nothing leaves the machine.
+  warn: Model downloads come from Ollama's registry; verify what you pull.
+- id: jan
+  name: Jan
+  category: ai
+  platforms: [linux, macos, windows]
+  jurisdiction: SG
+  url: https://jan.ai
+  criteria: [foss, no-account, offline]
+  why: Desktop chat UI over local models, ChatGPT feel without the cloud.
+  warn: Optional cloud providers are opt-in; keep them off. Anonymous analytics prompt on first run.
+- id: llamacpp
+  name: llama.cpp
+  category: ai
+  platforms: [linux, macos, windows, android]
+  jurisdiction: none
+  url: https://github.com/ggml-org/llama.cpp
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: The inference engine under most local-AI tools. Runs on a phone.
+  warn: CLI and server only.

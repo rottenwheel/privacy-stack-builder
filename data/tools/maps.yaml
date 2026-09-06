@@ -1,0 +1,27 @@
+- id: organic-maps
+  name: Organic Maps
+  category: maps
+  platforms: [android, ios, linux]
+  jurisdiction: EE
+  url: https://organicmaps.app
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: Offline OpenStreetMap navigation with no tracking and no ads.
+  warn: Governance dispute in 2025 led to the CoMaps fork.
+- id: comaps
+  name: CoMaps
+  category: maps
+  platforms: [android, ios]
+  jurisdiction: none
+  url: https://comaps.app
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: Community fork of Organic Maps with open governance.
+  warn: Young fork; feature parity still settling.
+- id: osmand
+  name: OsmAnd
+  category: maps
+  platforms: [android, ios]
+  jurisdiction: NL
+  url: https://osmand.net
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: Most detailed offline maps and routing options, hiking and cycling included.
+  warn: Cluttered UI. Full features paid on Play, free on F-Droid.

@@ -1,0 +1,36 @@
+- id: veracrypt
+  name: VeraCrypt
+  category: encryption
+  platforms: [linux, macos, windows]
+  jurisdiction: FR
+  url: https://veracrypt.fr
+  criteria: [foss, no-account, offline, audit]
+  why: Encrypted containers and full-disk, hidden volumes for deniability.
+  warn: Desktop only. Hidden volumes need discipline to stay deniable.
+- id: picocrypt
+  name: Picocrypt
+  category: encryption
+  platforms: [linux, macos, windows]
+  jurisdiction: none
+  url: https://github.com/Picocrypt/Picocrypt
+  criteria: [foss, no-account, offline]
+  why: Tiny single-binary file encryption with Reed-Solomon corruption resistance.
+  warn: Single maintainer.
+- id: age
+  name: age
+  category: encryption
+  platforms: [linux, macos, windows]
+  jurisdiction: none
+  url: https://age-encryption.org
+  criteria: [foss, no-account, offline]
+  why: Modern replacement for GPG file encryption. No config, no key servers, no footguns.
+  warn: CLI only. Not for email.
+- id: gnupg
+  name: GnuPG
+  category: encryption
+  platforms: [linux, macos, windows]
+  jurisdiction: DE
+  url: https://gnupg.org
+  criteria: [foss, no-account, offline]
+  why: Still the standard for signed email and package verification.
+  warn: Complex, easy to misuse. Prefer age for plain file encryption.

@@ -1,0 +1,27 @@
+- id: aegis
+  name: Aegis Authenticator
+  category: 2fa
+  platforms: [android]
+  jurisdiction: NL
+  url: https://getaegis.app
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: Encrypted vault, import from everything, encrypted export for backups.
+  warn: Android only. You own the backup; lose it and you lose the codes.
+- id: ente-auth
+  name: Ente Auth
+  category: 2fa
+  platforms: [android, ios, linux, macos, windows, web]
+  jurisdiction: IN
+  url: https://ente.io/auth
+  criteria: [foss, e2ee, no-phone, no-telemetry, offline, audit]
+  why: Cross-platform with optional E2EE sync. Works fully offline without an account.
+  warn: Sync requires an Ente account (email only).
+- id: bitwarden-auth
+  name: Bitwarden Authenticator
+  category: 2fa
+  platforms: [android, ios]
+  jurisdiction: US
+  url: https://bitwarden.com/products/authenticator/
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: Standalone TOTP app from a vendor you may already trust for passwords.
+  warn: Keep 2FA out of the same vault as the passwords it protects.

@@ -57,3 +57,62 @@
   label: Desktop OS
   icon: "💻"
   max: 2
+- id: 2fa
+  label: 2FA app
+  icon: "🔢"
+  max: 2
+  require: [offline]
+- id: files
+  label: Files & sync
+  icon: "📁"
+  max: 3
+- id: encryption
+  label: File encryption
+  icon: "🧊"
+  max: 3
+  require: [offline]
+- id: metadata
+  label: Metadata removal
+  icon: "🧹"
+  max: 2
+  require: [offline]
+- id: maps
+  label: Maps
+  icon: "🗺️"
+  max: 2
+  require: [offline]
+- id: appstore
+  label: Android app source
+  icon: "📦"
+  max: 3
+- id: keyboard
+  label: Mobile keyboard
+  icon: "⌨️"
+  max: 2
+  require: [offline]
+- id: blocking
+  label: Ad & tracker blocking
+  icon: "🚫"
+  max: 3
+- id: media
+  label: Video frontend
+  icon: "📺"
+  max: 3
+- id: rss
+  label: RSS reader
+  icon: "📰"
+  max: 2
+- id: mailclient
+  label: Mail client
+  icon: "📬"
+  max: 2
+- id: backup
+  label: Backup
+  icon: "🗄️"
+  max: 2
+  require: [e2ee]
+- id: ai
+  label: Local AI
+  icon: "🧠"
+  max: 2
+  require: [offline]

@@ -52,3 +52,21 @@
   criteria: [foss, no-account, no-telemetry]
   why: Firefox with telemetry gone and privacy defaults pre-applied.
   warn: Desktop only. Some sites break under strict resist-fingerprinting.
+- id: cromite
+  name: Cromite
+  category: browser
+  platforms: [android, linux, windows]
+  jurisdiction: none
+  url: https://www.cromite.org
+  criteria: [foss, no-account, no-telemetry]
+  why: "Bromite successor: Chromium with built-in ad blocking and anti-fingerprinting patches."
+  warn: Small team; verify updates keep pace with Chromium security releases.
+- id: firefox-arkenfox
+  name: Firefox + arkenfox
+  category: browser
+  platforms: [linux, macos, windows]
+  jurisdiction: US
+  url: https://github.com/arkenfox/user.js
+  criteria: [foss, no-account]
+  why: Stock Firefox hardened by a maintained user.js. Full extension support.
+  warn: Manual setup and upkeep. Stock Firefox ships telemetry and sponsored content.

@@ -52,3 +52,12 @@
   criteria: [foss, no-account, no-telemetry]
   why: Ubuntu base without snap or telemetry, friendly for switchers.
   warn: Cinnamon on X11 for now; fingerprinting-relevant only if you care.
+- id: whonix
+  name: Whonix
+  category: desktop-os
+  platforms: [linux]
+  jurisdiction: none
+  url: https://www.whonix.org
+  criteria: [foss, no-account, no-telemetry]
+  why: "Two VMs: gateway routes everything through Tor, workstation cannot leak your IP."
+  warn: Runs inside VirtualBox, KVM or Qubes. Not a daily-driver OS.

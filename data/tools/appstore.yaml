@@ -1,0 +1,36 @@
+- id: fdroid
+  name: F-Droid
+  category: appstore
+  platforms: [android]
+  jurisdiction: none
+  url: https://f-droid.org
+  criteria: [foss, no-account, no-telemetry, repro]
+  why: FOSS-only catalog, builds from source, flags anti-features.
+  warn: Updates lag upstream. Signing by F-Droid, not the developer, unless reproducible.
+- id: obtainium
+  name: Obtainium
+  category: appstore
+  platforms: [android]
+  jurisdiction: none
+  url: https://obtainium.imranr.dev
+  criteria: [foss, no-account, no-telemetry]
+  why: Installs and updates straight from developer releases on GitHub, GitLab, Codeberg.
+  warn: You are trusting each developer's release signing yourself.
+- id: aurora
+  name: Aurora Store
+  category: appstore
+  platforms: [android]
+  jurisdiction: none
+  url: https://auroraoss.com
+  criteria: [foss, no-account, no-telemetry]
+  why: Play Store apps through anonymous shared accounts, no Google login.
+  warn: Anonymous accounts get rate-limited. Paid apps need your own account.
+- id: accrescent
+  name: Accrescent
+  category: appstore
+  platforms: [android]
+  jurisdiction: none
+  url: https://accrescent.app
+  criteria: [foss, no-account, no-telemetry]
+  why: Developer-signed apps with strict security review. Bundled with GrapheneOS's app store.
+  warn: Small catalog.

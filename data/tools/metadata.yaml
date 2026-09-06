@@ -1,0 +1,27 @@
+- id: exiferaser
+  name: ExifEraser
+  category: metadata
+  platforms: [android]
+  jurisdiction: none
+  url: https://github.com/Tommy-Geenexus/exif-eraser
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: Strips GPS and camera data from photos before you share them.
+  warn: Android only.
+- id: metadata-cleaner
+  name: Metadata Cleaner
+  category: metadata
+  platforms: [linux]
+  jurisdiction: none
+  url: https://metadatacleaner.romainvigier.fr
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: GUI over mat2. Cleans PDFs, images, office documents in one drop.
+  warn: Linux only. Some formats are cleaned by re-encoding, which loses quality.
+- id: mat2
+  name: mat2
+  category: metadata
+  platforms: [linux, macos]
+  jurisdiction: none
+  url: https://0xacab.org/jvoisin/mat2
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: The CLI behind Metadata Cleaner and Tails. Scriptable.
+  warn: CLI only.

@@ -152,6 +152,105 @@ window.STACK_DATA = {
    "label": "Desktop OS",
    "icon": "💻",
    "max": 2
+  },
+  {
+   "id": "2fa",
+   "label": "2FA app",
+   "icon": "🔢",
+   "max": 2,
+   "require": [
+    "offline"
+   ]
+  },
+  {
+   "id": "files",
+   "label": "Files & sync",
+   "icon": "📁",
+   "max": 3
+  },
+  {
+   "id": "encryption",
+   "label": "File encryption",
+   "icon": "🧊",
+   "max": 3,
+   "require": [
+    "offline"
+   ]
+  },
+  {
+   "id": "metadata",
+   "label": "Metadata removal",
+   "icon": "🧹",
+   "max": 2,
+   "require": [
+    "offline"
+   ]
+  },
+  {
+   "id": "maps",
+   "label": "Maps",
+   "icon": "🗺️",
+   "max": 2,
+   "require": [
+    "offline"
+   ]
+  },
+  {
+   "id": "appstore",
+   "label": "Android app source",
+   "icon": "📦",
+   "max": 3
+  },
+  {
+   "id": "keyboard",
+   "label": "Mobile keyboard",
+   "icon": "⌨️",
+   "max": 2,
+   "require": [
+    "offline"
+   ]
+  },
+  {
+   "id": "blocking",
+   "label": "Ad & tracker blocking",
+   "icon": "🚫",
+   "max": 3
+  },
+  {
+   "id": "media",
+   "label": "Video frontend",
+   "icon": "📺",
+   "max": 3
+  },
+  {
+   "id": "rss",
+   "label": "RSS reader",
+   "icon": "📰",
+   "max": 2
+  },
+  {
+   "id": "mailclient",
+   "label": "Mail client",
+   "icon": "📬",
+   "max": 2
+  },
+  {
+   "id": "backup",
+   "label": "Backup",
+   "icon": "🗄️",
+   "max": 2,
+   "require": [
+    "e2ee"
+   ]
+  },
+  {
+   "id": "ai",
+   "label": "Local AI",
+   "icon": "🧠",
+   "max": 2,
+   "require": [
+    "offline"
+   ]
   }
  ],
  "policy": {
@@ -273,6 +372,49 @@ window.STACK_DATA = {
     ],
     "desktop-os": [
      "mint"
+    ],
+    "2fa": [
+     "ente-auth"
+    ],
+    "files": [
+     "proton-drive",
+     "syncthing"
+    ],
+    "encryption": [
+     "cryptomator"
+    ],
+    "metadata": [
+     "exiferaser"
+    ],
+    "maps": [
+     "organic-maps"
+    ],
+    "appstore": [
+     "fdroid",
+     "aurora"
+    ],
+    "keyboard": [
+     "heliboard"
+    ],
+    "blocking": [
+     "ublock"
+    ],
+    "media": [
+     "newpipe",
+     "freetube"
+    ],
+    "rss": [
+     "feeder"
+    ],
+    "mailclient": [
+     "thunderbird",
+     "thunderbird-android"
+    ],
+    "backup": [
+     "kopia"
+    ],
+    "ai": [
+     "ollama"
     ]
    }
   },
@@ -329,6 +471,50 @@ window.STACK_DATA = {
     "desktop-os": [
      "qubes",
      "tails"
+    ],
+    "2fa": [
+     "aegis"
+    ],
+    "files": [
+     "syncthing",
+     "cryptomator"
+    ],
+    "encryption": [
+     "veracrypt",
+     "age"
+    ],
+    "metadata": [
+     "mat2",
+     "exiferaser"
+    ],
+    "maps": [
+     "organic-maps"
+    ],
+    "appstore": [
+     "fdroid",
+     "obtainium"
+    ],
+    "keyboard": [
+     "heliboard"
+    ],
+    "blocking": [
+     "ublock"
+    ],
+    "media": [
+     "newpipe"
+    ],
+    "rss": [
+     "feeder"
+    ],
+    "mailclient": [
+     "thunderbird",
+     "fairemail"
+    ],
+    "backup": [
+     "restic"
+    ],
+    "ai": [
+     "llamacpp"
     ]
    }
   },
@@ -386,11 +572,368 @@ window.STACK_DATA = {
     ],
     "desktop-os": [
      "debian"
+    ],
+    "2fa": [
+     "aegis",
+     "ente-auth"
+    ],
+    "files": [
+     "nextcloud",
+     "syncthing"
+    ],
+    "encryption": [
+     "age",
+     "gnupg"
+    ],
+    "metadata": [
+     "metadata-cleaner"
+    ],
+    "maps": [
+     "osmand"
+    ],
+    "appstore": [
+     "fdroid",
+     "obtainium",
+     "accrescent"
+    ],
+    "keyboard": [
+     "heliboard"
+    ],
+    "blocking": [
+     "adguard-home",
+     "ublock"
+    ],
+    "media": [
+     "invidious",
+     "newpipe"
+    ],
+    "rss": [
+     "miniflux",
+     "feeder"
+    ],
+    "mailclient": [
+     "thunderbird",
+     "fairemail"
+    ],
+    "backup": [
+     "borg",
+     "restic"
+    ],
+    "ai": [
+     "ollama",
+     "jan"
     ]
    }
   }
  ],
  "tools": [
+  {
+   "id": "aegis",
+   "name": "Aegis Authenticator",
+   "category": "2fa",
+   "platforms": [
+    "android"
+   ],
+   "jurisdiction": "NL",
+   "url": "https://getaegis.app",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry",
+    "offline"
+   ],
+   "why": "Encrypted vault, import from everything, encrypted export for backups.",
+   "warn": "Android only. You own the backup; lose it and you lose the codes."
+  },
+  {
+   "id": "ente-auth",
+   "name": "Ente Auth",
+   "category": "2fa",
+   "platforms": [
+    "android",
+    "ios",
+    "linux",
+    "macos",
+    "windows",
+    "web"
+   ],
+   "jurisdiction": "IN",
+   "url": "https://ente.io/auth",
+   "criteria": [
+    "foss",
+    "e2ee",
+    "no-phone",
+    "no-telemetry",
+    "offline",
+    "audit"
+   ],
+   "why": "Cross-platform with optional E2EE sync. Works fully offline without an account.",
+   "warn": "Sync requires an Ente account (email only)."
+  },
+  {
+   "id": "bitwarden-auth",
+   "name": "Bitwarden Authenticator",
+   "category": "2fa",
+   "platforms": [
+    "android",
+    "ios"
+   ],
+   "jurisdiction": "US",
+   "url": "https://bitwarden.com/products/authenticator/",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry",
+    "offline"
+   ],
+   "why": "Standalone TOTP app from a vendor you may already trust for passwords.",
+   "warn": "Keep 2FA out of the same vault as the passwords it protects."
+  },
+  {
+   "id": "ollama",
+   "name": "Ollama",
+   "category": "ai",
+   "platforms": [
+    "linux",
+    "macos",
+    "windows"
+   ],
+   "jurisdiction": "US",
+   "url": "https://ollama.com",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry",
+    "offline"
+   ],
+   "why": "Run open-weight models locally with one command. Nothing leaves the machine.",
+   "warn": "Model downloads come from Ollama's registry; verify what you pull."
+  },
+  {
+   "id": "jan",
+   "name": "Jan",
+   "category": "ai",
+   "platforms": [
+    "linux",
+    "macos",
+    "windows"
+   ],
+   "jurisdiction": "SG",
+   "url": "https://jan.ai",
+   "criteria": [
+    "foss",
+    "no-account",
+    "offline"
+   ],
+   "why": "Desktop chat UI over local models, ChatGPT feel without the cloud.",
+   "warn": "Optional cloud providers are opt-in; keep them off. Anonymous analytics prompt on first run."
+  },
+  {
+   "id": "llamacpp",
+   "name": "llama.cpp",
+   "category": "ai",
+   "platforms": [
+    "linux",
+    "macos",
+    "windows",
+    "android"
+   ],
+   "jurisdiction": "none",
+   "url": "https://github.com/ggml-org/llama.cpp",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry",
+    "offline"
+   ],
+   "why": "The inference engine under most local-AI tools. Runs on a phone.",
+   "warn": "CLI and server only."
+  },
+  {
+   "id": "fdroid",
+   "name": "F-Droid",
+   "category": "appstore",
+   "platforms": [
+    "android"
+   ],
+   "jurisdiction": "none",
+   "url": "https://f-droid.org",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry",
+    "repro"
+   ],
+   "why": "FOSS-only catalog, builds from source, flags anti-features.",
+   "warn": "Updates lag upstream. Signing by F-Droid, not the developer, unless reproducible."
+  },
+  {
+   "id": "obtainium",
+   "name": "Obtainium",
+   "category": "appstore",
+   "platforms": [
+    "android"
+   ],
+   "jurisdiction": "none",
+   "url": "https://obtainium.imranr.dev",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry"
+   ],
+   "why": "Installs and updates straight from developer releases on GitHub, GitLab, Codeberg.",
+   "warn": "You are trusting each developer's release signing yourself."
+  },
+  {
+   "id": "aurora",
+   "name": "Aurora Store",
+   "category": "appstore",
+   "platforms": [
+    "android"
+   ],
+   "jurisdiction": "none",
+   "url": "https://auroraoss.com",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry"
+   ],
+   "why": "Play Store apps through anonymous shared accounts, no Google login.",
+   "warn": "Anonymous accounts get rate-limited. Paid apps need your own account."
+  },
+  {
+   "id": "accrescent",
+   "name": "Accrescent",
+   "category": "appstore",
+   "platforms": [
+    "android"
+   ],
+   "jurisdiction": "none",
+   "url": "https://accrescent.app",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry"
+   ],
+   "why": "Developer-signed apps with strict security review. Bundled with GrapheneOS's app store.",
+   "warn": "Small catalog."
+  },
+  {
+   "id": "restic",
+   "name": "restic",
+   "category": "backup",
+   "platforms": [
+    "linux",
+    "macos",
+    "windows"
+   ],
+   "jurisdiction": "none",
+   "url": "https://restic.net",
+   "criteria": [
+    "foss",
+    "e2ee",
+    "no-account",
+    "offline"
+   ],
+   "why": "Encrypted, deduplicated backups to any target, single binary.",
+   "warn": "CLI. Automate it yourself."
+  },
+  {
+   "id": "borg",
+   "name": "BorgBackup (+ Vorta)",
+   "category": "backup",
+   "platforms": [
+    "linux",
+    "macos"
+   ],
+   "jurisdiction": "none",
+   "url": "https://www.borgbackup.org",
+   "criteria": [
+    "foss",
+    "e2ee",
+    "no-account",
+    "offline"
+   ],
+   "why": "Encrypted dedup backups with Vorta as GUI. Cheap remote via BorgBase or your own SSH box.",
+   "warn": "No Windows. Repo must be Borg-served or local."
+  },
+  {
+   "id": "kopia",
+   "name": "Kopia",
+   "category": "backup",
+   "platforms": [
+    "linux",
+    "macos",
+    "windows"
+   ],
+   "jurisdiction": "none",
+   "url": "https://kopia.io",
+   "criteria": [
+    "foss",
+    "e2ee",
+    "no-account",
+    "offline"
+   ],
+   "why": "restic-like with a GUI and built-in scheduling.",
+   "warn": "Younger than restic and Borg."
+  },
+  {
+   "id": "ublock",
+   "name": "uBlock Origin",
+   "category": "blocking",
+   "platforms": [
+    "linux",
+    "macos",
+    "windows",
+    "android"
+   ],
+   "jurisdiction": "none",
+   "url": "https://github.com/gorhill/uBlock",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry",
+    "offline"
+   ],
+   "why": "The blocker. Firefox-based browsers keep the full version.",
+   "warn": "Chromium Manifest V3 forces the weaker uBlock Origin Lite."
+  },
+  {
+   "id": "adguard-home",
+   "name": "AdGuard Home",
+   "category": "blocking",
+   "platforms": [
+    "linux"
+   ],
+   "jurisdiction": "CY",
+   "url": "https://adguard.com/adguard-home/overview.html",
+   "criteria": [
+    "foss",
+    "selfhost",
+    "no-account",
+    "no-telemetry"
+   ],
+   "why": "Network-wide DNS blocking with DoH/DoT upstreams built in.",
+   "warn": "Company behind it is Cyprus-registered with Russian roots; server code is FOSS."
+  },
+  {
+   "id": "pihole",
+   "name": "Pi-hole",
+   "category": "blocking",
+   "platforms": [
+    "linux"
+   ],
+   "jurisdiction": "none",
+   "url": "https://pi-hole.net",
+   "criteria": [
+    "foss",
+    "selfhost",
+    "no-account",
+    "no-telemetry"
+   ],
+   "why": "Classic network-wide blocker, huge community lists.",
+   "warn": "Needs a separate resolver (Unbound) for encrypted upstream DNS."
+  },
   {
    "id": "tor-browser",
    "name": "Tor Browser",
@@ -510,6 +1053,43 @@ window.STACK_DATA = {
    "warn": "Desktop only. Some sites break under strict resist-fingerprinting."
   },
   {
+   "id": "cromite",
+   "name": "Cromite",
+   "category": "browser",
+   "platforms": [
+    "android",
+    "linux",
+    "windows"
+   ],
+   "jurisdiction": "none",
+   "url": "https://www.cromite.org",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry"
+   ],
+   "why": "Bromite successor: Chromium with built-in ad blocking and anti-fingerprinting patches.",
+   "warn": "Small team; verify updates keep pace with Chromium security releases."
+  },
+  {
+   "id": "firefox-arkenfox",
+   "name": "Firefox + arkenfox",
+   "category": "browser",
+   "platforms": [
+    "linux",
+    "macos",
+    "windows"
+   ],
+   "jurisdiction": "US",
+   "url": "https://github.com/arkenfox/user.js",
+   "criteria": [
+    "foss",
+    "no-account"
+   ],
+   "why": "Stock Firefox hardened by a maintained user.js. Full extension support.",
+   "warn": "Manual setup and upkeep. Stock Firefox ships telemetry and sponsored content."
+  },
+  {
    "id": "ubuntu-debloated",
    "name": "Ubuntu (snap-free, telemetry removed)",
    "category": "desktop-os",
@@ -613,6 +1193,23 @@ window.STACK_DATA = {
    "warn": "Cinnamon on X11 for now; fingerprinting-relevant only if you care."
   },
   {
+   "id": "whonix",
+   "name": "Whonix",
+   "category": "desktop-os",
+   "platforms": [
+    "linux"
+   ],
+   "jurisdiction": "none",
+   "url": "https://www.whonix.org",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry"
+   ],
+   "why": "Two VMs: gateway routes everything through Tor, workstation cannot leak your IP.",
+   "warn": "Runs inside VirtualBox, KVM or Qubes. Not a daily-driver OS."
+  },
+  {
    "id": "vscodium",
    "name": "VSCodium",
    "category": "editor",
@@ -671,6 +1268,25 @@ window.STACK_DATA = {
    ],
    "why": "Batteries-included modal editor, no plugin ecosystem to vet.",
    "warn": "No plugins means no plugins."
+  },
+  {
+   "id": "zed",
+   "name": "Zed",
+   "category": "editor",
+   "platforms": [
+    "linux",
+    "macos",
+    "windows"
+   ],
+   "jurisdiction": "US",
+   "url": "https://zed.dev",
+   "criteria": [
+    "foss",
+    "no-account",
+    "offline"
+   ],
+   "why": "Fast native editor, FOSS, AI features can be fully disabled.",
+   "warn": "Telemetry and crash reports on by default; turn off. Disable AI predictions."
   },
   {
    "id": "selfhost-mail",
@@ -765,6 +1381,407 @@ window.STACK_DATA = {
    ],
    "why": "Unlimited aliases forwarding to your real box. Kill an alias when it leaks.",
    "warn": "Forwarder sees plaintext unless you enable PGP encryption."
+  },
+  {
+   "id": "posteo",
+   "name": "Posteo",
+   "category": "email",
+   "platforms": [
+    "web"
+   ],
+   "jurisdiction": "DE",
+   "url": "https://posteo.de",
+   "criteria": [
+    "no-phone",
+    "no-telemetry"
+   ],
+   "why": "German provider, one euro a month, anonymous cash payment by post, no name required.",
+   "warn": "Not E2EE by default. No custom domains. Closed source."
+  },
+  {
+   "id": "simplelogin",
+   "name": "SimpleLogin",
+   "category": "email",
+   "platforms": [
+    "android",
+    "ios",
+    "web"
+   ],
+   "jurisdiction": "CH",
+   "url": "https://simplelogin.io",
+   "criteria": [
+    "foss",
+    "selfhost"
+   ],
+   "why": "Alias forwarding, self-hostable, integrates with Proton Pass.",
+   "warn": "Owned by Proton. Forwarder sees plaintext unless PGP enabled."
+  },
+  {
+   "id": "veracrypt",
+   "name": "VeraCrypt",
+   "category": "encryption",
+   "platforms": [
+    "linux",
+    "macos",
+    "windows"
+   ],
+   "jurisdiction": "FR",
+   "url": "https://veracrypt.fr",
+   "criteria": [
+    "foss",
+    "no-account",
+    "offline",
+    "audit"
+   ],
+   "why": "Encrypted containers and full-disk, hidden volumes for deniability.",
+   "warn": "Desktop only. Hidden volumes need discipline to stay deniable."
+  },
+  {
+   "id": "picocrypt",
+   "name": "Picocrypt",
+   "category": "encryption",
+   "platforms": [
+    "linux",
+    "macos",
+    "windows"
+   ],
+   "jurisdiction": "none",
+   "url": "https://github.com/Picocrypt/Picocrypt",
+   "criteria": [
+    "foss",
+    "no-account",
+    "offline"
+   ],
+   "why": "Tiny single-binary file encryption with Reed-Solomon corruption resistance.",
+   "warn": "Single maintainer."
+  },
+  {
+   "id": "age",
+   "name": "age",
+   "category": "encryption",
+   "platforms": [
+    "linux",
+    "macos",
+    "windows"
+   ],
+   "jurisdiction": "none",
+   "url": "https://age-encryption.org",
+   "criteria": [
+    "foss",
+    "no-account",
+    "offline"
+   ],
+   "why": "Modern replacement for GPG file encryption. No config, no key servers, no footguns.",
+   "warn": "CLI only. Not for email."
+  },
+  {
+   "id": "gnupg",
+   "name": "GnuPG",
+   "category": "encryption",
+   "platforms": [
+    "linux",
+    "macos",
+    "windows"
+   ],
+   "jurisdiction": "DE",
+   "url": "https://gnupg.org",
+   "criteria": [
+    "foss",
+    "no-account",
+    "offline"
+   ],
+   "why": "Still the standard for signed email and package verification.",
+   "warn": "Complex, easy to misuse. Prefer age for plain file encryption."
+  },
+  {
+   "id": "syncthing",
+   "name": "Syncthing",
+   "category": "files",
+   "platforms": [
+    "android",
+    "linux",
+    "macos",
+    "windows"
+   ],
+   "jurisdiction": "NL",
+   "url": "https://syncthing.net",
+   "criteria": [
+    "foss",
+    "e2ee",
+    "no-account",
+    "selfhost",
+    "no-telemetry",
+    "offline"
+   ],
+   "why": "Device-to-device sync with no server in the middle. Nothing to host, nothing to trust.",
+   "warn": "Not a backup; deletions sync too. Official Android app discontinued, use Syncthing-Fork."
+  },
+  {
+   "id": "nextcloud",
+   "name": "Nextcloud",
+   "category": "files",
+   "platforms": [
+    "android",
+    "ios",
+    "linux",
+    "macos",
+    "windows",
+    "web"
+   ],
+   "jurisdiction": "DE",
+   "url": "https://nextcloud.com",
+   "criteria": [
+    "foss",
+    "selfhost",
+    "no-telemetry"
+   ],
+   "why": "Self-hosted Dropbox plus calendar, contacts and the WebDAV endpoint Joplin needs.",
+   "warn": "Server sees plaintext unless you enable its E2EE folder feature. You maintain it."
+  },
+  {
+   "id": "cryptomator",
+   "name": "Cryptomator",
+   "category": "files",
+   "platforms": [
+    "android",
+    "ios",
+    "linux",
+    "macos",
+    "windows"
+   ],
+   "jurisdiction": "DE",
+   "url": "https://cryptomator.org",
+   "criteria": [
+    "foss",
+    "e2ee",
+    "no-account",
+    "offline",
+    "audit"
+   ],
+   "why": "Encrypts vaults client-side so any cloud becomes a dumb blob store.",
+   "warn": "Mobile apps cost a one-time fee. File names encrypted, sizes are not."
+  },
+  {
+   "id": "proton-drive",
+   "name": "Proton Drive",
+   "category": "files",
+   "platforms": [
+    "android",
+    "ios",
+    "macos",
+    "windows",
+    "web"
+   ],
+   "jurisdiction": "CH",
+   "url": "https://proton.me/drive",
+   "criteria": [
+    "foss",
+    "e2ee",
+    "audit"
+   ],
+   "why": "Hosted E2EE storage if you do not want to run anything.",
+   "warn": "Proton account required. Linux client lags behind."
+  },
+  {
+   "id": "heliboard",
+   "name": "HeliBoard",
+   "category": "keyboard",
+   "platforms": [
+    "android"
+   ],
+   "jurisdiction": "none",
+   "url": "https://github.com/Helium314/HeliBoard",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry",
+    "offline"
+   ],
+   "why": "OpenBoard successor. No network permission at all.",
+   "warn": "Glide typing needs a proprietary library you add yourself."
+  },
+  {
+   "id": "florisboard",
+   "name": "FlorisBoard",
+   "category": "keyboard",
+   "platforms": [
+    "android"
+   ],
+   "jurisdiction": "none",
+   "url": "https://florisboard.org",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry",
+    "offline"
+   ],
+   "why": "Modern FOSS keyboard, no network permission.",
+   "warn": "Still beta; word suggestions limited."
+  },
+  {
+   "id": "thunderbird",
+   "name": "Thunderbird",
+   "category": "mailclient",
+   "platforms": [
+    "linux",
+    "macos",
+    "windows"
+   ],
+   "jurisdiction": "US",
+   "url": "https://www.thunderbird.net",
+   "criteria": [
+    "foss",
+    "e2ee",
+    "offline"
+   ],
+   "why": "Built-in OpenPGP, works with any IMAP provider including self-hosted.",
+   "warn": "Telemetry on by default; disable in settings."
+  },
+  {
+   "id": "thunderbird-android",
+   "name": "Thunderbird for Android",
+   "category": "mailclient",
+   "platforms": [
+    "android"
+   ],
+   "jurisdiction": "US",
+   "url": "https://www.thunderbird.net/mobile/",
+   "criteria": [
+    "foss",
+    "offline"
+   ],
+   "why": "K-9 Mail continued. Any IMAP account, OpenPGP via OpenKeychain.",
+   "warn": "Android only."
+  },
+  {
+   "id": "fairemail",
+   "name": "FairEmail",
+   "category": "mailclient",
+   "platforms": [
+    "android"
+   ],
+   "jurisdiction": "NL",
+   "url": "https://email.faircode.eu",
+   "criteria": [
+    "foss",
+    "e2ee",
+    "no-telemetry",
+    "offline"
+   ],
+   "why": "Privacy-first Android client: blocks tracking pixels, reformats mail, PGP and S/MIME.",
+   "warn": "Dense settings. Some features behind a small one-time payment."
+  },
+  {
+   "id": "organic-maps",
+   "name": "Organic Maps",
+   "category": "maps",
+   "platforms": [
+    "android",
+    "ios",
+    "linux"
+   ],
+   "jurisdiction": "EE",
+   "url": "https://organicmaps.app",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry",
+    "offline"
+   ],
+   "why": "Offline OpenStreetMap navigation with no tracking and no ads.",
+   "warn": "Governance dispute in 2025 led to the CoMaps fork."
+  },
+  {
+   "id": "comaps",
+   "name": "CoMaps",
+   "category": "maps",
+   "platforms": [
+    "android",
+    "ios"
+   ],
+   "jurisdiction": "none",
+   "url": "https://comaps.app",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry",
+    "offline"
+   ],
+   "why": "Community fork of Organic Maps with open governance.",
+   "warn": "Young fork; feature parity still settling."
+  },
+  {
+   "id": "osmand",
+   "name": "OsmAnd",
+   "category": "maps",
+   "platforms": [
+    "android",
+    "ios"
+   ],
+   "jurisdiction": "NL",
+   "url": "https://osmand.net",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry",
+    "offline"
+   ],
+   "why": "Most detailed offline maps and routing options, hiking and cycling included.",
+   "warn": "Cluttered UI. Full features paid on Play, free on F-Droid."
+  },
+  {
+   "id": "newpipe",
+   "name": "NewPipe",
+   "category": "media",
+   "platforms": [
+    "android"
+   ],
+   "jurisdiction": "none",
+   "url": "https://newpipe.net",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry"
+   ],
+   "why": "YouTube, PeerTube, SoundCloud without a Google account or ads.",
+   "warn": "Breaks whenever YouTube changes; update via F-Droid or Obtainium."
+  },
+  {
+   "id": "freetube",
+   "name": "FreeTube",
+   "category": "media",
+   "platforms": [
+    "linux",
+    "macos",
+    "windows"
+   ],
+   "jurisdiction": "none",
+   "url": "https://freetubeapp.io",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry"
+   ],
+   "why": "Desktop YouTube client, local subscriptions, SponsorBlock built in.",
+   "warn": "Same cat-and-mouse as NewPipe."
+  },
+  {
+   "id": "invidious",
+   "name": "Invidious",
+   "category": "media",
+   "platforms": [
+    "web"
+   ],
+   "jurisdiction": "none",
+   "url": "https://invidious.io",
+   "criteria": [
+    "foss",
+    "no-account",
+    "selfhost",
+    "no-telemetry"
+   ],
+   "why": "Self-hosted YouTube frontend; your server talks to Google, not you.",
+   "warn": "Public instances get blocked often. Run your own."
   },
   {
    "id": "simplex",
@@ -898,6 +1915,124 @@ window.STACK_DATA = {
    ],
    "why": "Federated, self-hostable, bridges to everything.",
    "warn": "Metadata (room membership, reactions) is not encrypted and spreads across federated servers."
+  },
+  {
+   "id": "deltachat",
+   "name": "Delta Chat",
+   "category": "messenger",
+   "platforms": [
+    "android",
+    "ios",
+    "linux",
+    "macos",
+    "windows"
+   ],
+   "jurisdiction": "DE",
+   "url": "https://delta.chat",
+   "criteria": [
+    "foss",
+    "e2ee",
+    "no-phone",
+    "selfhost",
+    "audit"
+   ],
+   "why": "Chat over email. Any address works, or use its own chatmail relays with no signup data.",
+   "warn": "Metadata (who mails whom) visible to mail servers unless both use chatmail relays."
+  },
+  {
+   "id": "molly",
+   "name": "Molly",
+   "category": "messenger",
+   "platforms": [
+    "android"
+   ],
+   "jurisdiction": "none",
+   "url": "https://molly.im",
+   "criteria": [
+    "foss",
+    "e2ee",
+    "audit",
+    "repro"
+   ],
+   "why": "Hardened Signal fork: encrypted database at rest, Tor via Orbot, no Google push in the FOSS build.",
+   "warn": "Still Signal's network, so still needs a phone number."
+  },
+  {
+   "id": "cwtch",
+   "name": "Cwtch",
+   "category": "messenger",
+   "platforms": [
+    "android",
+    "linux",
+    "macos",
+    "windows"
+   ],
+   "jurisdiction": "CA",
+   "url": "https://cwtch.im",
+   "criteria": [
+    "foss",
+    "e2ee",
+    "no-phone",
+    "no-account",
+    "offline"
+   ],
+   "why": "Every conversation is a Tor onion service. No servers, no metadata.",
+   "warn": "Both sides online for delivery unless you run an untrusted relay server."
+  },
+  {
+   "id": "exiferaser",
+   "name": "ExifEraser",
+   "category": "metadata",
+   "platforms": [
+    "android"
+   ],
+   "jurisdiction": "none",
+   "url": "https://github.com/Tommy-Geenexus/exif-eraser",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry",
+    "offline"
+   ],
+   "why": "Strips GPS and camera data from photos before you share them.",
+   "warn": "Android only."
+  },
+  {
+   "id": "metadata-cleaner",
+   "name": "Metadata Cleaner",
+   "category": "metadata",
+   "platforms": [
+    "linux"
+   ],
+   "jurisdiction": "none",
+   "url": "https://metadatacleaner.romainvigier.fr",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry",
+    "offline"
+   ],
+   "why": "GUI over mat2. Cleans PDFs, images, office documents in one drop.",
+   "warn": "Linux only. Some formats are cleaned by re-encoding, which loses quality."
+  },
+  {
+   "id": "mat2",
+   "name": "mat2",
+   "category": "metadata",
+   "platforms": [
+    "linux",
+    "macos"
+   ],
+   "jurisdiction": "none",
+   "url": "https://0xacab.org/jvoisin/mat2",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry",
+    "offline"
+   ],
+   "why": "The CLI behind Metadata Cleaner and Tails. Scriptable.",
+   "warn": "CLI only."
   },
   {
    "id": "grapheneos",
@@ -1077,6 +2212,65 @@ window.STACK_DATA = {
    "warn": "Android only. Uses the VPN slot, so pair with WireGuard config inside it."
   },
   {
+   "id": "orbot",
+   "name": "Orbot",
+   "category": "network",
+   "platforms": [
+    "android",
+    "ios"
+   ],
+   "jurisdiction": "US",
+   "url": "https://orbot.app",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry"
+   ],
+   "why": "Tor for the whole phone or per app. Bridges built in for censored networks.",
+   "warn": "Not a VPN replacement for speed. Uses the VPN slot on Android."
+  },
+  {
+   "id": "wireguard",
+   "name": "WireGuard (self-hosted)",
+   "category": "network",
+   "platforms": [
+    "android",
+    "ios",
+    "linux",
+    "macos",
+    "windows"
+   ],
+   "jurisdiction": "none",
+   "url": "https://www.wireguard.com",
+   "criteria": [
+    "foss",
+    "no-account",
+    "selfhost",
+    "no-telemetry",
+    "audit"
+   ],
+   "why": "Your own VPN on a cheap VPS. Hides traffic from the local network, not from the VPS provider.",
+   "warn": "A single-user VPN is trivially linkable to you. Use for trusted-network access, not anonymity."
+  },
+  {
+   "id": "netguard",
+   "name": "NetGuard",
+   "category": "network",
+   "platforms": [
+    "android"
+   ],
+   "jurisdiction": "NL",
+   "url": "https://netguard.me",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry",
+    "offline"
+   ],
+   "why": "Per-app firewall without root. Block an app's network entirely.",
+   "warn": "Occupies the VPN slot, so it conflicts with VPN apps."
+  },
+  {
    "id": "amethyst",
    "name": "Amethyst",
    "category": "nostr",
@@ -1128,6 +2322,25 @@ window.STACK_DATA = {
    ],
    "why": "Web client with strong relay selection and NIP-07 signer support.",
    "warn": "Web app; use a browser extension signer, never paste your nsec."
+  },
+  {
+   "id": "primal",
+   "name": "Primal",
+   "category": "nostr",
+   "platforms": [
+    "android",
+    "ios",
+    "web"
+   ],
+   "jurisdiction": "none",
+   "url": "https://primal.net",
+   "criteria": [
+    "foss",
+    "no-phone",
+    "no-account"
+   ],
+   "why": "Polished client with built-in caching relay, easy onboarding for newcomers.",
+   "warn": "Built-in wallet is custodial. Caching service sees what you read."
   },
   {
    "id": "joplin",
@@ -1218,6 +2431,27 @@ window.STACK_DATA = {
    "warn": "Account required for sync."
   },
   {
+   "id": "logseq",
+   "name": "Logseq",
+   "category": "notes",
+   "platforms": [
+    "android",
+    "ios",
+    "linux",
+    "macos",
+    "windows"
+   ],
+   "jurisdiction": "US",
+   "url": "https://logseq.com",
+   "criteria": [
+    "foss",
+    "no-account",
+    "offline"
+   ],
+   "why": "Outliner with backlinks, plain Markdown files on disk. Sync with Syncthing.",
+   "warn": "Official sync is paid and was in beta for years; use your own sync."
+  },
+  {
    "id": "bitwarden",
    "name": "Bitwarden",
    "category": "passwords",
@@ -1299,6 +2533,97 @@ window.STACK_DATA = {
    ],
    "why": "Swiss, built-in email aliases, audited clients.",
    "warn": "Proton account required. Not self-hostable."
+  },
+  {
+   "id": "keepassdx",
+   "name": "KeePassDX",
+   "category": "passwords",
+   "platforms": [
+    "android"
+   ],
+   "jurisdiction": "none",
+   "url": "https://www.keepassdx.com",
+   "criteria": [
+    "foss",
+    "e2ee",
+    "no-account",
+    "offline"
+   ],
+   "why": "Android companion to KeePassXC. Same database file, autofill, biometrics.",
+   "warn": "Android only. Sync the file with Syncthing."
+  },
+  {
+   "id": "feeder",
+   "name": "Feeder",
+   "category": "rss",
+   "platforms": [
+    "android"
+   ],
+   "jurisdiction": "none",
+   "url": "https://github.com/spacecowboy/Feeder",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry",
+    "offline"
+   ],
+   "why": "Local Android reader, no sync service needed.",
+   "warn": "No cross-device sync."
+  },
+  {
+   "id": "miniflux",
+   "name": "Miniflux",
+   "category": "rss",
+   "platforms": [
+    "linux",
+    "web"
+   ],
+   "jurisdiction": "none",
+   "url": "https://miniflux.app",
+   "criteria": [
+    "foss",
+    "selfhost",
+    "no-telemetry"
+   ],
+   "why": "Minimal self-hosted reader, single Go binary.",
+   "warn": "Opinionated: no themes, no plugins."
+  },
+  {
+   "id": "freshrss",
+   "name": "FreshRSS",
+   "category": "rss",
+   "platforms": [
+    "linux",
+    "web"
+   ],
+   "jurisdiction": "none",
+   "url": "https://freshrss.org",
+   "criteria": [
+    "foss",
+    "selfhost",
+    "no-telemetry"
+   ],
+   "why": "Self-hosted with Google Reader API, so most mobile clients connect.",
+   "warn": "PHP stack to maintain."
+  },
+  {
+   "id": "netnewswire",
+   "name": "NetNewsWire",
+   "category": "rss",
+   "platforms": [
+    "macos",
+    "ios"
+   ],
+   "jurisdiction": "US",
+   "url": "https://netnewswire.com",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry",
+    "offline"
+   ],
+   "why": "Best native Apple reader, free, no tracking.",
+   "warn": "Apple only."
   },
   {
    "id": "oss-document-scanner",

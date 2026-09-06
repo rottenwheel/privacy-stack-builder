@@ -1,0 +1,27 @@
+- id: newpipe
+  name: NewPipe
+  category: media
+  platforms: [android]
+  jurisdiction: none
+  url: https://newpipe.net
+  criteria: [foss, no-account, no-telemetry]
+  why: YouTube, PeerTube, SoundCloud without a Google account or ads.
+  warn: Breaks whenever YouTube changes; update via F-Droid or Obtainium.
+- id: freetube
+  name: FreeTube
+  category: media
+  platforms: [linux, macos, windows]
+  jurisdiction: none
+  url: https://freetubeapp.io
+  criteria: [foss, no-account, no-telemetry]
+  why: Desktop YouTube client, local subscriptions, SponsorBlock built in.
+  warn: Same cat-and-mouse as NewPipe.
+- id: invidious
+  name: Invidious
+  category: media
+  platforms: [web]
+  jurisdiction: none
+  url: https://invidious.io
+  criteria: [foss, no-account, selfhost, no-telemetry]
+  why: Self-hosted YouTube frontend; your server talks to Google, not you.
+  warn: Public instances get blocked often. Run your own.

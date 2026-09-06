@@ -25,3 +25,12 @@
   criteria: [foss, no-phone, no-account, selfhost]
   why: Web client with strong relay selection and NIP-07 signer support.
   warn: Web app; use a browser extension signer, never paste your nsec.
+- id: primal
+  name: Primal
+  category: nostr
+  platforms: [android, ios, web]
+  jurisdiction: none
+  url: https://primal.net
+  criteria: [foss, no-phone, no-account]
+  why: Polished client with built-in caching relay, easy onboarding for newcomers.
+  warn: Built-in wallet is custodial. Caching service sees what you read.

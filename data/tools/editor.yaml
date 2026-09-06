@@ -25,3 +25,12 @@
   criteria: [foss, no-account, no-telemetry, offline]
   why: Batteries-included modal editor, no plugin ecosystem to vet.
   warn: No plugins means no plugins.
+- id: zed
+  name: Zed
+  category: editor
+  platforms: [linux, macos, windows]
+  jurisdiction: US
+  url: https://zed.dev
+  criteria: [foss, no-account, offline]
+  why: Fast native editor, FOSS, AI features can be fully disabled.
+  warn: Telemetry and crash reports on by default; turn off. Disable AI predictions.

@@ -43,3 +43,21 @@
   criteria: [foss, selfhost]
   why: Unlimited aliases forwarding to your real box. Kill an alias when it leaks.
   warn: Forwarder sees plaintext unless you enable PGP encryption.
+- id: posteo
+  name: Posteo
+  category: email
+  platforms: [web]
+  jurisdiction: DE
+  url: https://posteo.de
+  criteria: [no-phone, no-telemetry]
+  why: German provider, one euro a month, anonymous cash payment by post, no name required.
+  warn: Not E2EE by default. No custom domains. Closed source.
+- id: simplelogin
+  name: SimpleLogin
+  category: email
+  platforms: [android, ios, web]
+  jurisdiction: CH
+  url: https://simplelogin.io
+  criteria: [foss, selfhost]
+  why: Alias forwarding, self-hostable, integrates with Proton Pass.
+  warn: Owned by Proton. Forwarder sees plaintext unless PGP enabled.

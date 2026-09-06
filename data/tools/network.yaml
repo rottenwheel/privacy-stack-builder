@@ -52,3 +52,30 @@
   criteria: [foss, no-account, no-telemetry, offline]
   why: Per-app firewall plus encrypted DNS, no root needed.
   warn: Android only. Uses the VPN slot, so pair with WireGuard config inside it.
+- id: orbot
+  name: Orbot
+  category: network
+  platforms: [android, ios]
+  jurisdiction: US
+  url: https://orbot.app
+  criteria: [foss, no-account, no-telemetry]
+  why: Tor for the whole phone or per app. Bridges built in for censored networks.
+  warn: Not a VPN replacement for speed. Uses the VPN slot on Android.
+- id: wireguard
+  name: WireGuard (self-hosted)
+  category: network
+  platforms: [android, ios, linux, macos, windows]
+  jurisdiction: none
+  url: https://www.wireguard.com
+  criteria: [foss, no-account, selfhost, no-telemetry, audit]
+  why: Your own VPN on a cheap VPS. Hides traffic from the local network, not from the VPS provider.
+  warn: A single-user VPN is trivially linkable to you. Use for trusted-network access, not anonymity.
+- id: netguard
+  name: NetGuard
+  category: network
+  platforms: [android]
+  jurisdiction: NL
+  url: https://netguard.me
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: Per-app firewall without root. Block an app's network entirely.
+  warn: Occupies the VPN slot, so it conflicts with VPN apps.
