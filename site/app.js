@@ -466,6 +466,13 @@
     }
   });
 
+  // Footer: "2026" in the first year, "2026–2027" afterwards.
+  {
+    const first = 2026;
+    const now = new Date().getFullYear();
+    $("#copyright-years").textContent = now > first ? `${first}\u2013${now}` : String(first);
+  }
+
   load();
   renderPresets();
   renderPolicy();
