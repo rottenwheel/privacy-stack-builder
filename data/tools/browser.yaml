@@ -57,7 +57,7 @@
   category: browser
   platforms: [android, linux, windows]
   jurisdiction: none
-  url: https://www.cromite.org
+  url: https://github.com/uazo/cromite
   criteria: [foss, no-account, no-telemetry]
   why: "Bromite successor: Chromium with built-in ad blocking and anti-fingerprinting patches."
   warn: Small team; verify updates keep pace with Chromium security releases.

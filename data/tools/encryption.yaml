@@ -3,7 +3,7 @@
   category: encryption
   platforms: [linux, macos, windows]
   jurisdiction: FR
-  url: https://veracrypt.fr
+  url: https://veracrypt.io
   criteria: [foss, no-account, offline, audit]
   why: Encrypted containers and full-disk, hidden volumes for deniability.
   warn: Desktop only. Hidden volumes need discipline to stay deniable.
@@ -21,7 +21,7 @@
   category: encryption
   platforms: [linux, macos, windows]
   jurisdiction: none
-  url: https://age-encryption.org
+  url: https://github.com/FiloSottile/age
   criteria: [foss, no-account, offline]
   why: Modern replacement for GPG file encryption. No config, no key servers, no footguns.
   warn: CLI only. Not for email.

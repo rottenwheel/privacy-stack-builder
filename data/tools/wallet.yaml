@@ -21,7 +21,7 @@
   category: wallet
   platforms: [android]
   jurisdiction: none
-  url: https://www.monerujo.io
+  url: https://www.monerujo.app
   criteria: [foss, no-account, offline]
   why: Mature Android wallet with Tor support and node switching.
   warn: Android only.

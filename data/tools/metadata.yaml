@@ -12,7 +12,7 @@
   category: metadata
   platforms: [linux]
   jurisdiction: none
-  url: https://metadatacleaner.romainvigier.fr
+  url: https://gitlab.com/rmnvgr/metadata-cleaner
   criteria: [foss, no-account, no-telemetry, offline]
   why: GUI over mat2. Cleans PDFs, images, office documents in one drop.
   warn: Linux only. Some formats are cleaned by re-encoding, which loses quality.

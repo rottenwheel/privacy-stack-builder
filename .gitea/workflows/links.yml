@@ -1,0 +1,31 @@
+# Weekly link check over every tool URL in the pool. Fails on dead links and
+# on redirects that leave the tool's domain (possible takeover or silent
+# move). Also runs when the checker or this workflow changes, so edits get
+# exercised immediately.
+name: links
+
+on:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - check_links.py
+      - .gitea/workflows/links.yml
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install pyyaml
+        run: pip install --disable-pip-version-check pyyaml
+
+      - name: Check tool URLs
+        run: python3 check_links.py

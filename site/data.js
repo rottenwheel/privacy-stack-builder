@@ -819,7 +819,7 @@ window.STACK_DATA = {
     "web"
    ],
    "jurisdiction": "IN",
-   "url": "https://ente.io/auth",
+   "url": "https://ente.com/auth",
    "criteria": [
     "foss",
     "e2ee",
@@ -1223,7 +1223,7 @@ window.STACK_DATA = {
     "windows"
    ],
    "jurisdiction": "none",
-   "url": "https://www.cromite.org",
+   "url": "https://github.com/uazo/cromite",
    "criteria": [
     "foss",
     "no-account",
@@ -1587,7 +1587,7 @@ window.STACK_DATA = {
     "windows"
    ],
    "jurisdiction": "FR",
-   "url": "https://veracrypt.fr",
+   "url": "https://veracrypt.io",
    "criteria": [
     "foss",
     "no-account",
@@ -1626,7 +1626,7 @@ window.STACK_DATA = {
     "windows"
    ],
    "jurisdiction": "none",
-   "url": "https://age-encryption.org",
+   "url": "https://github.com/FiloSottile/age",
    "criteria": [
     "foss",
     "no-account",
@@ -1807,7 +1807,7 @@ window.STACK_DATA = {
     "android"
    ],
    "jurisdiction": "US",
-   "url": "https://keyboard.futo.org",
+   "url": "https://keyboard.futo.tech",
    "criteria": [
     "source-available",
     "no-account",
@@ -2081,7 +2081,7 @@ window.STACK_DATA = {
     "web"
    ],
    "jurisdiction": "CH",
-   "url": "https://threema.ch",
+   "url": "https://threema.com",
    "criteria": [
     "foss",
     "e2ee",
@@ -2224,7 +2224,7 @@ window.STACK_DATA = {
     "linux"
    ],
    "jurisdiction": "none",
-   "url": "https://metadatacleaner.romainvigier.fr",
+   "url": "https://gitlab.com/rmnvgr/metadata-cleaner",
    "criteria": [
     "foss",
     "no-account",
@@ -3092,7 +3092,7 @@ window.STACK_DATA = {
     "android"
    ],
    "jurisdiction": "none",
-   "url": "https://www.monerujo.io",
+   "url": "https://www.monerujo.app",
    "criteria": [
     "foss",
     "no-account",

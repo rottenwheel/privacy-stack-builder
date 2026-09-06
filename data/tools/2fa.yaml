@@ -12,7 +12,7 @@
   category: 2fa
   platforms: [android, ios, linux, macos, windows, web]
   jurisdiction: IN
-  url: https://ente.io/auth
+  url: https://ente.com/auth
   criteria: [foss, e2ee, no-phone, no-telemetry, offline, audit]
   why: Cross-platform with optional E2EE sync. Works fully offline without an account.
   warn: Sync requires an Ente account (email only).

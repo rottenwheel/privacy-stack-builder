@@ -96,6 +96,14 @@ not rebuilt. It needs Gitea Actions enabled for the repository and a runner
 with the `ubuntu-latest` label; `deploy/runner/` contains a docker compose
 setup for one.
 
+## Link check
+
+`check_links.py` requests every tool URL and fails on dead links or on a
+redirect that leaves the tool's domain, which is what a takeover or a
+silent move looks like. `.gitea/workflows/links.yml` runs it every Monday
+and whenever the checker changes. Run it locally with `python3
+check_links.py` (set `VERBOSE=1` to list the good ones too).
+
 ## Deploy
 
 Production is https://privacystack.rocks, a plain nginx vhost, with a Tor

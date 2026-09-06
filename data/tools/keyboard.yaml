@@ -21,7 +21,7 @@
   category: keyboard
   platforms: [android]
   jurisdiction: US
-  url: https://keyboard.futo.org
+  url: https://keyboard.futo.tech
   criteria: [source-available, no-account, no-telemetry, offline]
   why: Offline voice input and swipe typing without any network permission.
   warn: "FUTO Source First license, not OSI open source. Optional paid license nag."
