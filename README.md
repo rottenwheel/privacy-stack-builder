@@ -14,7 +14,8 @@ data/
   categories.yaml   slots, display order, max picks, per-slot require/waive
   presets.yaml      threat-model presets (author's stack, everyday, ...)
   tools/*.yaml      one file per category, one entry per tool
-build.py            validates data against policy, emits site/data.js
+build.py            validates data against policy, emits site/data.js,
+                    stamps asset URLs in site/index.html with content hashes
 site/               index.html, style.css, app.js, data.js (generated)
 ```
 
@@ -76,7 +77,10 @@ Append an entry to the matching `data/tools/<category>.yaml`:
 ```
 
 Run `python3 build.py`. If the tool misses a required criterion the build
-says so and drops it.
+says so and drops it. The build also rewrites the `style.css`, `app.js` and
+`data.js` references in `site/index.html` to `name?v=<hash>`, so commit
+`site/index.html` alongside `site/data.js`; the server caches static files
+for ten years and browsers would otherwise keep showing the old pool.
 
 ## Sharing
 

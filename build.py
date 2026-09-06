@@ -7,8 +7,10 @@ Applies data/policy.yaml: tools missing a required criterion are dropped with
 a warning. Presets referencing unknown or dropped tools are also warned about.
 """
 import glob
+import hashlib
 import json
 import os
+import re
 import sys
 
 import yaml
@@ -16,11 +18,32 @@ import yaml
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(ROOT, "data")
 OUT = os.path.join(ROOT, "site", "data.js")
+INDEX = os.path.join(ROOT, "site", "index.html")
+# Assets referenced from index.html that get a content-hash query string so
+# browsers fetch a new copy after a deploy. The server sends a ten-year
+# max-age for static files, so a bare "data.js" would stay stale.
+STAMPED = ["style.css", "app.js", "data.js"]
 
 
 def load(path):
     with open(path, encoding="utf-8") as f:
         return yaml.safe_load(f)
+
+
+def stamp_assets():
+    """Rewrite href/src of STAMPED assets in index.html to name?v=<hash>."""
+    with open(INDEX, encoding="utf-8") as f:
+        html = f.read()
+    for name in STAMPED:
+        with open(os.path.join(ROOT, "site", name), "rb") as f:
+            digest = hashlib.sha256(f.read()).hexdigest()[:10]
+        html = re.sub(
+            r'((?:href|src)=")%s(?:\?v=[0-9a-f]+)?"' % re.escape(name),
+            r'\g<1>%s?v=%s"' % (name, digest),
+            html,
+        )
+    with open(INDEX, "w", encoding="utf-8") as f:
+        f.write(html)
 
 
 def main():
@@ -99,6 +122,7 @@ def main():
         f.write("window.STACK_DATA = ")
         json.dump(payload, f, ensure_ascii=False, indent=1)
         f.write(";\n")
+    stamp_assets()
 
     for w in warnings:
         print("warn:", w, file=sys.stderr)

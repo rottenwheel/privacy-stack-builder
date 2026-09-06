@@ -25,11 +25,11 @@ jobs:
       - name: Validate pool against policy and rebuild site/data.js
         run: python3 build.py
 
-      - name: Fail if site/data.js is stale
+      - name: Fail if site/data.js or the asset stamps in site/index.html are stale
         run: |
-          if ! git diff --quiet -- site/data.js; then
-            echo "::error::site/data.js is out of date. Run 'python3 build.py' and commit the result."
-            git --no-pager diff --stat -- site/data.js
+          if ! git diff --quiet -- site/data.js site/index.html; then
+            echo "::error::site/data.js or site/index.html is out of date. Run 'python3 build.py' and commit the result."
+            git --no-pager diff --stat -- site/data.js site/index.html
             exit 1
           fi
 
