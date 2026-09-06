@@ -97,7 +97,7 @@
   desc: Anonymity over convenience. Assume targeted adversary.
   picks:
     mobile-os: [grapheneos]
-    messenger: [simplex, briar, signal]
+    messenger: [simplex, briar, signal, bitchat]
     browser: [tor-browser, mullvad-browser]
     search: [searxng, startpage]
     network: [mullvad, ivpn, nymvpn]

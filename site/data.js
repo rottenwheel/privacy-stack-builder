@@ -595,7 +595,8 @@ window.STACK_DATA = {
     "messenger": [
      "simplex",
      "briar",
-     "signal"
+     "signal",
+     "bitchat"
     ],
     "browser": [
      "tor-browser",
