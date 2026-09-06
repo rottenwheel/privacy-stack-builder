@@ -116,7 +116,10 @@ select { font: inherit; background: var(--panel-2); color: var(--text); border: 
 .summary .warnlist li b { color: var(--text); }
 .jurs { display: flex; flex-wrap: wrap; gap: .3rem; }
 
-dialog { background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 12px; padding: 1.2rem; width: min(680px, 92vw); max-height: 88vh; overflow: auto; box-sizing: border-box; }
+dialog { background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 12px; padding: 1.2rem; width: min(680px, 92vw); max-height: 88vh; overflow: auto; overscroll-behavior: contain; box-sizing: border-box; }
+/* Keep the page from scrolling under an open modal: overscroll-behavior
+   stops scroll chaining, the body lock covers browsers that ignore it. */
+body:has(dialog[open]) { overflow: hidden; }
 dialog::backdrop { background: rgba(0,0,0,.6); }
 dialog h2 { margin: 0 0 .7rem; font-size: 1.1rem; }
 dialog textarea { width: 100%; font-family: var(--mono); font-size: .85rem; background: var(--panel-2); color: var(--text); border: 1px solid var(--line); border-radius: 8px; padding: .6rem; resize: vertical; }
