@@ -470,7 +470,7 @@
     $("#suggest-form").addEventListener("input", refreshSuggest);
     $("#btn-suggest").addEventListener("click", () => {
       refreshSuggest();
-      $("#dlg-suggest").showModal();
+      openDialog($("#dlg-suggest"));
     });
     $("#btn-suggest-copy").addEventListener("click", () => copy(suggestYaml()));
     $("#btn-suggest-close").addEventListener("click", () => $("#dlg-suggest").close());
@@ -492,9 +492,17 @@
     for (const a of document.querySelectorAll("#dlg-suggest .policy-link")) {
       a.addEventListener("click", (e) => {
         e.preventDefault();
-        $("#dlg-policy").showModal();
+        openDialog($("#dlg-policy"));
       });
     }
+  }
+
+  // showModal() focuses the first focusable element, which for a dialog
+  // taller than the viewport is the Close button at the bottom, so the
+  // browser scrolls straight past the content. Open, then scroll back up.
+  function openDialog(dlg) {
+    dlg.showModal();
+    dlg.scrollTop = 0;
   }
 
   // ---------- wiring ----------
@@ -504,7 +512,7 @@
   });
   $("#btn-export").addEventListener("click", () => {
     $("#export-text").value = exportText();
-    $("#dlg-export").showModal();
+    openDialog($("#dlg-export"));
   });
   $("#btn-copy-export").addEventListener("click", () => copy($("#export-text").value));
   $("#btn-reset").addEventListener("click", () => {
@@ -513,7 +521,7 @@
   });
   $("#policy-link").addEventListener("click", (e) => {
     e.preventDefault();
-    $("#dlg-policy").showModal();
+    openDialog($("#dlg-policy"));
   });
   window.addEventListener("hashchange", () => {
     const p = decodeHash(location.hash);
