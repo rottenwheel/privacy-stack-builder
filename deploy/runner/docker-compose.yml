@@ -1,0 +1,25 @@
+# Gitea act_runner for this repository.
+#
+# 1. Get a registration token:
+#    repo  -> Settings -> Actions -> Runners -> "Create new Runner"
+#    (or Site Administration -> Actions -> Runners for an instance-wide runner)
+# 2. Put it into .env next to this file:  GITEA_RUNNER_REGISTRATION_TOKEN=...
+# 3. docker compose up -d
+#
+# The runner registers itself on first start and persists its identity in
+# ./data, so the token is only needed once.
+services:
+  runner:
+    image: docker.io/gitea/act_runner:latest
+    restart: unless-stopped
+    environment:
+      GITEA_INSTANCE_URL: https://gitea.schmidt.eco
+      GITEA_RUNNER_REGISTRATION_TOKEN: ${GITEA_RUNNER_REGISTRATION_TOKEN:?set in .env}
+      GITEA_RUNNER_NAME: privacy-stack-runner
+      # Label maps the workflow's `runs-on: ubuntu-latest` to a container image.
+      GITEA_RUNNER_LABELS: ubuntu-latest:docker://docker.gitea.com/runner-images:ubuntu-latest
+      CONFIG_FILE: /config.yaml
+    volumes:
+      - ./config.yaml:/config.yaml:ro
+      - ./data:/data
+      - /var/run/docker.sock:/var/run/docker.sock

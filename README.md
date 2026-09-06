@@ -60,3 +60,11 @@ The URL fragment looks like:
 ```
 
 Order within a slot is primary first. Fragments are never sent to the server.
+
+## CI
+
+`.gitea/workflows/check.yml` runs `build.py` on pull requests and pushes to
+`main`. It fails when a tool violates the policy or when `site/data.js` was
+not rebuilt. It needs Gitea Actions enabled for the repository and a runner
+with the `ubuntu-latest` label; `deploy/runner/` contains a docker compose
+setup for one.
