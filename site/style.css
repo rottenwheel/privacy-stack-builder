@@ -33,6 +33,7 @@ button.ghost { background: transparent; }
 button.small { padding: .15rem .45rem; font-size: .8rem; }
 select { font: inherit; background: var(--panel-2); color: var(--text); border: 1px solid var(--line); border-radius: 6px; padding: .35rem .5rem; }
 
+.noscript { margin: 1rem 1.5rem; padding: .8rem 1rem; border: 1px solid var(--accent); border-radius: 8px; }
 .top { display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-start; justify-content: space-between; padding: 1.5rem 1.5rem .5rem; }
 .brand h1 { margin: 0; font-size: 1.6rem; letter-spacing: -.01em; }
 .brand h1::before { content: "▮ "; color: var(--accent); }
