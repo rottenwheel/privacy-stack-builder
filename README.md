@@ -109,6 +109,8 @@ rsync -az --delete site/ root@89.167.107.136:/home/alex/web/privacystack.rocks/p
 
 ## License
 
+Copyright (C) 2026 schmidt1024
+
 - Code (`build.py`, `site/`, `deploy/`, workflow): [GNU AGPL-3.0-or-later](LICENSE).
 - Pool data (`data/`, including the generated `site/data.js`): [CC BY-SA 4.0](data/LICENSE).
   Attribution: "Privacy Stack Builder, https://privacystack.rocks".
