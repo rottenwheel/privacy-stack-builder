@@ -118,7 +118,10 @@ select { font: inherit; background: var(--panel-2); color: var(--text); border: 
 
 dialog { background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 12px; padding: 1.2rem; width: min(680px, 92vw); max-height: 88vh; overflow: auto; overscroll-behavior: contain; box-sizing: border-box; }
 /* Keep the page from scrolling under an open modal: overscroll-behavior
-   stops scroll chaining, the body lock covers browsers that ignore it. */
+   stops scroll chaining, the body lock covers browsers that ignore it.
+   The gutter stays reserved so the layout does not jump when the
+   scrollbar disappears. */
+html { scrollbar-gutter: stable; }
 body:has(dialog[open]) { overflow: hidden; }
 dialog::backdrop { background: rgba(0,0,0,.6); }
 dialog h2 { margin: 0 0 .7rem; font-size: 1.1rem; }
