@@ -363,6 +363,74 @@
     return lines.join("\n");
   }
 
+  // ---------- suggest a tool ----------
+  const CODEBERG = "https://codeberg.org/schmidt1024/privacy-stack-builder";
+  const PLATFORMS = ["android", "ios", "linux", "macos", "windows", "web"];
+
+  function yamlStr(v) {
+    // Double-quote when YAML could misread the plain scalar.
+    return /[:#'"{}\[\],&*?|>!%@`]|^\s|\s$/.test(v) || v === "" ? JSON.stringify(v) : v;
+  }
+  function slug(name) {
+    return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "tool-id";
+  }
+  function suggestYaml() {
+    const name = $("#sg-name").value.trim();
+    const cat = $("#sg-category").value;
+    const plats = [...document.querySelectorAll("#sg-platforms input:checked")].map((i) => i.value);
+    const crits = [...document.querySelectorAll("#sg-criteria input:checked")].map((i) => i.value);
+    const jur = ($("#sg-jur").value.trim() || "none").toUpperCase().replace("NONE", "none");
+    const lines = [
+      `- id: ${slug(name)}`,
+      `  name: ${yamlStr(name)}`,
+      `  category: ${cat}`,
+      `  platforms: [${plats.join(", ")}]`,
+      `  jurisdiction: ${jur}`,
+      `  url: ${$("#sg-url").value.trim()}`,
+      `  criteria: [${crits.join(", ")}]`,
+      `  why: ${yamlStr($("#sg-why").value.trim())}`,
+    ];
+    const warn = $("#sg-warn").value.trim();
+    if (warn) lines.push(`  warn: ${yamlStr(warn)}`);
+    return lines.join("\n");
+  }
+  function refreshSuggest() {
+    $("#sg-yaml").value = suggestYaml();
+  }
+  function initSuggest() {
+    const sel = $("#sg-category");
+    sel.replaceChildren(...D.categories.map((c) => el("option", { value: c.id }, `${c.icon} ${c.label}`)));
+    $("#sg-platforms").replaceChildren(
+      ...PLATFORMS.map((p) => el("label", { class: "chip" }, el("input", { type: "checkbox", value: p }), p))
+    );
+    $("#sg-criteria").replaceChildren(
+      ...D.criteria.map((c) =>
+        el("label", { class: "chip", title: c.desc }, el("input", { type: "checkbox", value: c.id }), `${c.icon} ${c.label}`)
+      )
+    );
+    $("#suggest-form").addEventListener("input", refreshSuggest);
+    $("#btn-suggest").addEventListener("click", () => {
+      refreshSuggest();
+      $("#dlg-suggest").showModal();
+    });
+    $("#btn-suggest-copy").addEventListener("click", () => copy(suggestYaml()));
+    $("#btn-suggest-issue").addEventListener("click", () => {
+      const form = $("#suggest-form");
+      if (!form.reportValidity()) return;
+      const name = $("#sg-name").value.trim();
+      const cat = CAT[$("#sg-category").value];
+      const title = `Tool suggestion: ${name} (${cat.label})`;
+      const body = `Proposed entry for \`data/tools/${cat.id}.yaml\`:\n\n\`\`\`yaml\n${suggestYaml()}\n\`\`\`\n\nEvidence for the criteria ticked (license, audit report, payment page, ...):\n\n- `;
+      window.open(`${CODEBERG}/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`, "_blank", "noopener");
+    });
+    for (const a of document.querySelectorAll("#dlg-suggest .policy-link")) {
+      a.addEventListener("click", (e) => {
+        e.preventDefault();
+        $("#dlg-policy").showModal();
+      });
+    }
+  }
+
   // ---------- wiring ----------
   $("#btn-share").addEventListener("click", () => {
     save();
@@ -392,5 +460,6 @@
   load();
   renderPresets();
   renderPolicy();
+  initSuggest();
   render();
 })();

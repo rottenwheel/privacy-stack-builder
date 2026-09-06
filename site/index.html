@@ -19,6 +19,7 @@
   <div class="actions">
     <button id="btn-share" class="primary" title="Copy a link that encodes this stack in the URL fragment">Copy link</button>
     <button id="btn-export" title="Render the stack as a post">Export post</button>
+    <button id="btn-suggest" title="Propose a tool for the pool">Suggest a tool</button>
     <button id="btn-reset" class="ghost">Reset</button>
   </div>
 </header>
@@ -54,6 +55,29 @@
   </form>
 </dialog>
 
+<dialog id="dlg-suggest">
+  <form method="dialog" id="suggest-form">
+    <h2>Suggest a tool</h2>
+    <p class="hint">Fill this in and it becomes a ready-made pool entry. Open it as an issue on Codeberg, or paste it into a pull request against <code>data/tools/&lt;category&gt;.yaml</code>. Entries are admitted when the build passes the <a href="#policy" class="policy-link">policy</a>.</p>
+    <div class="grid2">
+      <label>Name <input id="sg-name" required maxlength="60" placeholder="Tool name"></label>
+      <label>Website <input id="sg-url" required type="url" placeholder="https://"></label>
+      <label>Slot <select id="sg-category"></select></label>
+      <label>Jurisdiction <input id="sg-jur" maxlength="4" placeholder="CH, DE, US, none" value="none"></label>
+    </div>
+    <fieldset><legend>Platforms</legend><div id="sg-platforms" class="chips"></div></fieldset>
+    <fieldset><legend>Criteria it meets</legend><div id="sg-criteria" class="chips"></div></fieldset>
+    <label>Why pick it <textarea id="sg-why" rows="2" required maxlength="200" placeholder="One sentence."></textarea></label>
+    <label>Trade-off to know <textarea id="sg-warn" rows="2" maxlength="200" placeholder="One sentence. Optional but encouraged."></textarea></label>
+    <label>Generated entry <textarea id="sg-yaml" rows="9" readonly></textarea></label>
+    <div class="row">
+      <button type="button" id="btn-suggest-issue" class="primary">Open issue on Codeberg</button>
+      <button type="button" id="btn-suggest-copy">Copy YAML</button>
+      <button type="submit" class="ghost">Close</button>
+    </div>
+  </form>
+</dialog>
+
 <dialog id="dlg-policy">
   <form method="dialog">
     <h2>Admission policy</h2>
@@ -66,7 +90,7 @@
 
 <footer>
   <p>Static page. No cookies, no analytics, no external requests. Your stack lives in the URL fragment and this browser's storage only.</p>
-  <p>Pool data is versioned in <code>data/*.yaml</code>. Propose a tool by pull request; it is admitted when the build passes the policy.</p>
+  <p>Pool data is versioned in <code>data/*.yaml</code>. Propose a tool with the "Suggest a tool" button, by <a href="https://codeberg.org/schmidt1024/privacy-stack-builder/issues">issue</a> or <a href="https://codeberg.org/schmidt1024/privacy-stack-builder">pull request</a> on Codeberg. An entry is admitted when the build passes the policy.</p>
   <p>Tor mirror: <a href="http://73zofwr6jvnvriyd5mxq5oneli657btt5pi5xiwqvys55fa7pozmhdad.onion/">73zofwr6jvnvriyd5mxq5oneli657btt5pi5xiwqvys55fa7pozmhdad.onion</a></p>
 </footer>
 

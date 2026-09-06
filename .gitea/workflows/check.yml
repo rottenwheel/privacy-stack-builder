@@ -63,3 +63,27 @@ jobs:
           rsync -az --delete \
             -e "ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes" \
             site/ alex@89.167.107.136:/
+
+  mirror:
+    needs: build
+    if: gitea.event_name == 'push' && gitea.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push main to Codeberg
+        env:
+          CODEBERG_SSH_KEY: ${{ secrets.CODEBERG_SSH_KEY }}
+        run: |
+          if [ -z "$CODEBERG_SSH_KEY" ]; then
+            echo "::warning::CODEBERG_SSH_KEY secret not set, skipping mirror"
+            exit 0
+          fi
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$CODEBERG_SSH_KEY" > ~/.ssh/codeberg_key
+          chmod 600 ~/.ssh/codeberg_key
+          echo 'codeberg.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIVIC02vnjFyL+I4RHfvIGNtOgJMe769VTF1VR4EB3ZB' > ~/.ssh/known_hosts
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/codeberg_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes"
+          git push ssh://git@codeberg.org/schmidt1024/privacy-stack-builder.git HEAD:refs/heads/main

@@ -40,6 +40,16 @@ tell them apart. A category can `waive` a criterion, which removes it from
 `required` and skips any group containing it; hosted search engines and
 mail services waive `foss` this way.
 
+## Suggesting a tool
+
+Contributions happen on Codeberg: https://codeberg.org/schmidt1024/privacy-stack-builder
+
+The quickest route is the "Suggest a tool" button on the site. It turns a
+short form into a ready-made YAML entry and opens a prefilled Codeberg issue.
+Pull requests against `data/tools/<category>.yaml` are welcome too. The
+Gitea instance at gitea.schmidt.eco is the origin and deploy source; `main`
+is mirrored to Codeberg by CI after every green build.
+
 ## Adding a tool
 
 Append an entry to the matching `data/tools/<category>.yaml`:

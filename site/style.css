@@ -118,3 +118,16 @@ dialog .row { display: flex; gap: .5rem; justify-content: flex-end; margin-top: 
 
 footer { padding: 1rem 1.5rem 2rem; color: var(--muted); font-size: .8rem; border-top: 1px solid var(--line); }
 footer p { margin: .3rem 0; }
+
+/* suggest dialog */
+#dlg-suggest form { display: flex; flex-direction: column; gap: .6rem; }
+#dlg-suggest label { display: flex; flex-direction: column; gap: .2rem; font-size: .85rem; color: var(--muted); }
+#dlg-suggest input, #dlg-suggest select, #dlg-suggest textarea { font: inherit; color: var(--text); background: var(--panel-2); border: 1px solid var(--line); border-radius: 6px; padding: .4rem .5rem; }
+#dlg-suggest textarea { resize: vertical; }
+#dlg-suggest fieldset { border: 1px solid var(--line); border-radius: 8px; padding: .5rem .7rem .6rem; margin: 0; }
+#dlg-suggest legend { font-size: .8rem; color: var(--muted); padding: 0 .3rem; }
+#dlg-suggest .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
+@media (max-width: 600px) { #dlg-suggest .grid2 { grid-template-columns: 1fr; } }
+#dlg-suggest .hint { margin: 0; color: var(--muted); font-size: .85rem; }
+#dlg-suggest .chip input { display: none; }
+#dlg-suggest .chip:has(input:checked) { border-color: var(--accent); color: var(--accent); }
