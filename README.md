@@ -68,3 +68,13 @@ Order within a slot is primary first. Fragments are never sent to the server.
 not rebuilt. It needs Gitea Actions enabled for the repository and a runner
 with the `ubuntu-latest` label; `deploy/runner/` contains a docker compose
 setup for one.
+
+## Deploy
+
+Production is https://privacystack.rocks, a plain nginx vhost. Deploy is a
+file copy of `site/` after a build:
+
+```
+python3 build.py
+rsync -az --delete site/ root@89.167.107.136:/home/alex/web/privacystack.rocks/public_html/
+```
