@@ -15,6 +15,7 @@
     picks: {}, // categoryId -> [toolId, ...] primary first
     filterCriteria: new Set(),
     filterPlatform: "",
+    query: "",
   };
 
   // ---------- helpers ----------
@@ -144,10 +145,15 @@
   }
 
   // ---------- filters ----------
+  function matchesQuery(t) {
+    const q = state.query;
+    if (!q) return true;
+    return [t.name, t.id, t.why, t.warn].some((s) => s && s.toLowerCase().includes(q));
+  }
   function matchesFilter(t) {
     for (const c of state.filterCriteria) if (!t.criteria.includes(c)) return false;
     if (state.filterPlatform && !t.platforms.includes(state.filterPlatform)) return false;
-    return true;
+    return matchesQuery(t);
   }
 
   // ---------- rendering ----------
@@ -215,6 +221,31 @@
         )
       )
     );
+    const q = $("#filter-query");
+    if (!q.dataset.bound) {
+      q.dataset.bound = "1";
+      q.addEventListener("input", () => {
+        state.query = q.value.trim().toLowerCase();
+        render();
+      });
+      q.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          q.value = "";
+          state.query = "";
+          render();
+        }
+      });
+    }
+    const hits = $("#filter-hits");
+    if (state.query) {
+      const found = D.tools.filter(matchesFilter);
+      const slots = new Set(found.map((t) => t.category)).size;
+      hits.textContent = found.length
+        ? `${found.length} match${found.length === 1 ? "" : "es"} in ${slots} slot${slots === 1 ? "" : "s"}`
+        : "No tool matches";
+    } else {
+      hits.textContent = "";
+    }
     const sel = $("#filter-platform");
     if (sel.options.length === 1) {
       const plats = [...new Set(D.tools.flatMap((t) => t.platforms))].sort();
@@ -231,6 +262,8 @@
     const full = picks.length >= cat.max;
     const pool = D.tools.filter((t) => t.category === cat.id && !picks.includes(t.id));
     const visible = pool.filter(matchesFilter);
+    // While searching, only slots with a hit (in the pool or among the picks) stay on screen.
+    if (state.query && !visible.length && !picks.some((id) => matchesQuery(TOOL[id]))) return null;
 
     const pickItems = picks.map((id, i) => {
       const t = TOOL[id];
@@ -280,7 +313,7 @@
       el("ul", { class: "picks" }, ...pickItems),
       el(
         "details",
-        { class: "pool", open: picks.length === 0 ? "" : null },
+        { class: "pool", open: picks.length === 0 || (state.query && visible.length) ? "" : null },
         el("summary", null, `Pool: ${visible.length} available${hidden ? ` (${hidden} hidden by filter)` : ""}`),
         visible.length ? el("ul", null, ...candItems) : el("div", { class: "empty" }, pool.length ? "Nothing matches the filter." : "Every pool entry is picked.")
       )
@@ -288,7 +321,10 @@
   }
 
   function renderSlots() {
-    $("#slots").replaceChildren(...D.categories.map(renderSlot));
+    const slots = D.categories.map(renderSlot).filter(Boolean);
+    $("#slots").replaceChildren(
+      ...(slots.length ? slots : [el("div", { class: "empty no-hits" }, `No tool matches "${state.query}". Try a shorter word, or suggest it below.`)])
+    );
   }
 
   function renderSummary() {
