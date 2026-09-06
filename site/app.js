@@ -301,8 +301,12 @@
       ...bars,
       el("h3", null, "Jurisdictions"),
       el("div", { class: "jurs" }, ...(jurs.length ? jurs : [el("span", { class: "badge" }, "none yet")])),
-      el("h3", null, `Trade-offs to know (${warns.length})`),
-      warns.length ? el("ul", { class: "warnlist" }, ...warns) : el("p", { class: "badge" }, "none")
+      el(
+        "details",
+        { open: window.matchMedia("(min-width: 961px)").matches ? "" : null },
+        el("summary", null, `Trade-offs to know (${warns.length})`),
+        warns.length ? el("ul", { class: "warnlist" }, ...warns) : el("p", { class: "badge" }, "none")
+      )
     );
   }
 

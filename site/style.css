@@ -91,6 +91,7 @@ select { font: inherit; background: var(--panel-2); color: var(--text); border: 
 .badge.plat { font-family: var(--mono); }
 
 .summary { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: .9rem; align-self: start; position: sticky; top: .75rem; }
+@media (max-width: 960px) { .summary { position: static; } }
 .summary h2 { margin: 0 0 .5rem; font-size: 1rem; }
 .summary h3 { margin: .9rem 0 .3rem; font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
 .bar { display: grid; grid-template-columns: 1.5em 7em 1fr auto; gap: .4rem; align-items: center; font-size: .85rem; margin: .2rem 0; }
@@ -100,6 +101,7 @@ select { font: inherit; background: var(--panel-2); color: var(--text); border: 
 .bar .n { font-family: var(--mono); color: var(--muted); font-size: .75rem; }
 .summary ul { margin: 0; padding-left: 1.1rem; font-size: .85rem; }
 .summary li { margin: .15rem 0; }
+.summary details > summary { cursor: pointer; margin: .9rem 0 .3rem; font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
 .summary .warnlist li { color: var(--warn); }
 .summary .warnlist li b { color: var(--text); }
 .jurs { display: flex; flex-wrap: wrap; gap: .3rem; }
