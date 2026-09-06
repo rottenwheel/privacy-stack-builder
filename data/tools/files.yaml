@@ -34,3 +34,12 @@
   criteria: [foss, e2ee, audit]
   why: Hosted E2EE storage if you do not want to run anything.
   warn: Proton account required. Linux client lags behind.
+- id: immich
+  name: Immich
+  category: files
+  platforms: [android, ios, linux, web]
+  jurisdiction: US
+  url: https://immich.app
+  criteria: [foss, selfhost, no-telemetry]
+  why: Self-hosted Google Photos replacement with on-device ML for search and faces.
+  warn: Server sees plaintext. Fast-moving project with occasional breaking upgrades.

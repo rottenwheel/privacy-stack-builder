@@ -1,0 +1,27 @@
+- id: localsend
+  name: LocalSend
+  category: sharing
+  platforms: [android, ios, linux, macos, windows]
+  jurisdiction: none
+  url: https://localsend.org
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: AirDrop for everything. Devices talk directly over the LAN with TLS, no server, no internet.
+  warn: Same network required. Pairing trusts on first use.
+- id: kde-connect
+  name: KDE Connect
+  category: sharing
+  platforms: [android, ios, linux, macos, windows]
+  jurisdiction: none
+  url: https://kdeconnect.kde.org
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: File transfer plus clipboard, notifications and remote input between phone and desktop.
+  warn: Broad permissions on the phone by design. Restrict plugins you do not use.
+- id: warpinator
+  name: Warpinator
+  category: sharing
+  platforms: [android, linux, windows]
+  jurisdiction: IE
+  url: https://github.com/linuxmint/warpinator
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: Linux Mint's LAN transfer tool, dead simple.
+  warn: No iOS or macOS.

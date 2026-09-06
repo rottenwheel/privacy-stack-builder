@@ -1,7 +1,12 @@
 # Admission policy for the pool. Change here, rebuild, and tools that no
 # longer qualify are dropped from site/data.js with a build warning.
-required:
-  - foss
-# Criteria that only make sense for some categories are not required
-# globally. Category-specific requirements can be added per category in
-# data/categories.yaml under `require`.
+#
+# required: every listed criterion must be present.
+# any_of:   for each group, at least one of its criteria must be present.
+#
+# Categories may `waive` criteria (see data/categories.yaml): a waived
+# criterion is removed from `required`, and any any_of group containing a
+# waived criterion is skipped entirely for that category.
+required: []
+any_of:
+  - [foss, source-available]

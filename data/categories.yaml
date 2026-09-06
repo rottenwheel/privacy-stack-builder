@@ -66,6 +66,11 @@
   label: Files & sync
   icon: "📁"
   max: 3
+- id: sharing
+  label: Local file sharing
+  icon: "📤"
+  max: 2
+  require: [offline]
 - id: encryption
   label: File encryption
   icon: "🧊"

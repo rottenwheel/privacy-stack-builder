@@ -8,6 +8,12 @@ window.STACK_DATA = {
    "desc": "Client source code is published under an OSI-approved license."
   },
   {
+   "id": "source-available",
+   "label": "Source-first",
+   "icon": "📖",
+   "desc": "Source is published and auditable, but under a non-OSI license that restricts commercial use or redistribution (e.g. FUTO Source First)."
+  },
+  {
    "id": "e2ee",
    "label": "E2EE",
    "icon": "🔐",
@@ -169,6 +175,15 @@ window.STACK_DATA = {
    "max": 3
   },
   {
+   "id": "sharing",
+   "label": "Local file sharing",
+   "icon": "📤",
+   "max": 2,
+   "require": [
+    "offline"
+   ]
+  },
+  {
    "id": "encryption",
    "label": "File encryption",
    "icon": "🧊",
@@ -254,8 +269,12 @@ window.STACK_DATA = {
   }
  ],
  "policy": {
-  "required": [
-   "foss"
+  "required": [],
+  "any_of": [
+   [
+    "foss",
+    "source-available"
+   ]
   ]
  },
  "presets": [
@@ -380,6 +399,10 @@ window.STACK_DATA = {
      "proton-drive",
      "syncthing"
     ],
+    "sharing": [
+     "localsend",
+     "kde-connect"
+    ],
     "encryption": [
      "cryptomator"
     ],
@@ -401,7 +424,8 @@ window.STACK_DATA = {
     ],
     "media": [
      "newpipe",
-     "freetube"
+     "freetube",
+     "grayjay"
     ],
     "rss": [
      "feeder"
@@ -478,6 +502,9 @@ window.STACK_DATA = {
     "files": [
      "syncthing",
      "cryptomator"
+    ],
+    "sharing": [
+     "localsend"
     ],
     "encryption": [
      "veracrypt",
@@ -579,7 +606,12 @@ window.STACK_DATA = {
     ],
     "files": [
      "nextcloud",
-     "syncthing"
+     "syncthing",
+     "immich"
+    ],
+    "sharing": [
+     "localsend",
+     "kde-connect"
     ],
     "encryption": [
      "age",
@@ -1583,6 +1615,26 @@ window.STACK_DATA = {
    "warn": "Proton account required. Linux client lags behind."
   },
   {
+   "id": "immich",
+   "name": "Immich",
+   "category": "files",
+   "platforms": [
+    "android",
+    "ios",
+    "linux",
+    "web"
+   ],
+   "jurisdiction": "US",
+   "url": "https://immich.app",
+   "criteria": [
+    "foss",
+    "selfhost",
+    "no-telemetry"
+   ],
+   "why": "Self-hosted Google Photos replacement with on-device ML for search and faces.",
+   "warn": "Server sees plaintext. Fast-moving project with occasional breaking upgrades."
+  },
+  {
    "id": "heliboard",
    "name": "HeliBoard",
    "category": "keyboard",
@@ -1617,6 +1669,24 @@ window.STACK_DATA = {
    ],
    "why": "Modern FOSS keyboard, no network permission.",
    "warn": "Still beta; word suggestions limited."
+  },
+  {
+   "id": "futo-keyboard",
+   "name": "FUTO Keyboard",
+   "category": "keyboard",
+   "platforms": [
+    "android"
+   ],
+   "jurisdiction": "US",
+   "url": "https://keyboard.futo.org",
+   "criteria": [
+    "source-available",
+    "no-account",
+    "no-telemetry",
+    "offline"
+   ],
+   "why": "Offline voice input and swipe typing without any network permission.",
+   "warn": "FUTO Source First license, not OSI open source. Optional paid license nag."
   },
   {
    "id": "thunderbird",
@@ -1782,6 +1852,26 @@ window.STACK_DATA = {
    ],
    "why": "Self-hosted YouTube frontend; your server talks to Google, not you.",
    "warn": "Public instances get blocked often. Run your own."
+  },
+  {
+   "id": "grayjay",
+   "name": "Grayjay",
+   "category": "media",
+   "platforms": [
+    "android",
+    "linux",
+    "macos",
+    "windows"
+   ],
+   "jurisdiction": "US",
+   "url": "https://grayjay.app",
+   "criteria": [
+    "source-available",
+    "no-account",
+    "no-telemetry"
+   ],
+   "why": "One client for YouTube, PeerTube, Odysee, Rumble, Nebula and more via plugins. Follows creators, not platforms.",
+   "warn": "FUTO Source First license, not OSI open source. Plugins are third-party code you install."
   },
   {
    "id": "simplex",
@@ -2760,6 +2850,70 @@ window.STACK_DATA = {
    ],
    "why": "Ubiquitous, no account, decent results.",
    "warn": "Results come mostly from Bing. Closed source."
+  },
+  {
+   "id": "localsend",
+   "name": "LocalSend",
+   "category": "sharing",
+   "platforms": [
+    "android",
+    "ios",
+    "linux",
+    "macos",
+    "windows"
+   ],
+   "jurisdiction": "none",
+   "url": "https://localsend.org",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry",
+    "offline"
+   ],
+   "why": "AirDrop for everything. Devices talk directly over the LAN with TLS, no server, no internet.",
+   "warn": "Same network required. Pairing trusts on first use."
+  },
+  {
+   "id": "kde-connect",
+   "name": "KDE Connect",
+   "category": "sharing",
+   "platforms": [
+    "android",
+    "ios",
+    "linux",
+    "macos",
+    "windows"
+   ],
+   "jurisdiction": "none",
+   "url": "https://kdeconnect.kde.org",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry",
+    "offline"
+   ],
+   "why": "File transfer plus clipboard, notifications and remote input between phone and desktop.",
+   "warn": "Broad permissions on the phone by design. Restrict plugins you do not use."
+  },
+  {
+   "id": "warpinator",
+   "name": "Warpinator",
+   "category": "sharing",
+   "platforms": [
+    "android",
+    "linux",
+    "windows"
+   ],
+   "jurisdiction": "IE",
+   "url": "https://github.com/linuxmint/warpinator",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry",
+    "offline"
+   ],
+   "why": "Linux Mint's LAN transfer tool, dead simple.",
+   "warn": "No iOS or macOS."
   },
   {
    "id": "monero-gui",

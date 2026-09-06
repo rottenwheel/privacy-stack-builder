@@ -312,11 +312,17 @@
 
   function renderPolicy() {
     const req = D.policy.required || [];
+    const anyOf = D.policy.any_of || [];
     const body = $("#policy-body");
     body.replaceChildren(
       el("p", null, "A tool enters the pool only if it meets every global criterion, minus any the category waives, plus any the category adds. The check runs at build time from ", el("code", null, "data/policy.yaml"), " and ", el("code", null, "data/categories.yaml"), "."),
       el("h3", null, "Global"),
-      el("ul", null, ...req.map((r) => el("li", null, badgeCrit(r), " ", CRIT[r].desc))),
+      el(
+        "ul",
+        null,
+        ...req.map((r) => el("li", null, badgeCrit(r), " ", CRIT[r].desc)),
+        ...anyOf.map((g) => el("li", null, "At least one of: ", ...g.flatMap((r, i) => [i ? " or " : "", badgeCrit(r)])))
+      ),
       el("h3", null, "Per category"),
       el(
         "ul",

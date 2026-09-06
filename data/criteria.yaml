@@ -4,6 +4,10 @@
   label: FOSS
   icon: "🔓"
   desc: Client source code is published under an OSI-approved license.
+- id: source-available
+  label: Source-first
+  icon: "📖"
+  desc: Source is published and auditable, but under a non-OSI license that restricts commercial use or redistribution (e.g. FUTO Source First).
 - id: e2ee
   label: E2EE
   icon: "🔐"

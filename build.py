@@ -29,7 +29,8 @@ def main():
 
     crit_ids = {c["id"] for c in criteria}
     cat_by_id = {c["id"]: c for c in categories}
-    required = set(policy.get("required", []))
+    required = set(policy.get("required") or [])
+    any_of = [list(g) for g in (policy.get("any_of") or [])]
 
     tools = []
     for path in sorted(glob.glob(os.path.join(DATA, "tools", "*.yaml"))):
@@ -51,10 +52,24 @@ def main():
         unknown = set(t.get("criteria", [])) - crit_ids
         if unknown:
             warnings.append(f"{tid}: unknown criteria {sorted(unknown)}")
-        need = (required - set(cat.get("waive", []))) | set(cat.get("require", []))
-        missing = need - set(t.get("criteria", []))
+        waived = set(cat.get("waive", []))
+        have = set(t.get("criteria", []))
+        need = (required - waived) | set(cat.get("require", []))
+        missing = need - have
         if missing:
             warnings.append(f"{tid}: dropped, missing required {sorted(missing)}")
+            continue
+        failed_group = None
+        for group in any_of:
+            # Waiving any member of a group waives the whole group: the
+            # category has decided that this requirement does not apply.
+            if waived.intersection(group):
+                continue
+            if not have.intersection(group):
+                failed_group = group
+                break
+        if failed_group:
+            warnings.append(f"{tid}: dropped, needs one of {failed_group}")
             continue
         admitted.append(t)
 

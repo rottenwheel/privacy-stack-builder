@@ -25,3 +25,12 @@
   criteria: [foss, no-account, selfhost, no-telemetry]
   why: Self-hosted YouTube frontend; your server talks to Google, not you.
   warn: Public instances get blocked often. Run your own.
+- id: grayjay
+  name: Grayjay
+  category: media
+  platforms: [android, linux, macos, windows]
+  jurisdiction: US
+  url: https://grayjay.app
+  criteria: [source-available, no-account, no-telemetry]
+  why: "One client for YouTube, PeerTube, Odysee, Rumble, Nebula and more via plugins. Follows creators, not platforms."
+  warn: "FUTO Source First license, not OSI open source. Plugins are third-party code you install."

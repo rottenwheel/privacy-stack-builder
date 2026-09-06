@@ -31,6 +31,15 @@ works too.
 The build exits non-zero when a tool is dropped for failing the policy, so a
 CI job on pull requests doubles as the admission check.
 
+The policy has two parts. `required` lists criteria every tool must carry.
+`any_of` lists groups where at least one criterion must be present; today
+the only group is `[foss, source-available]`, which admits OSI-licensed
+software and source-published but restrictively licensed software (FUTO's
+apps, for example) while giving them different badges so the reader can
+tell them apart. A category can `waive` a criterion, which removes it from
+`required` and skips any group containing it; hosted search engines and
+mail services waive `foss` this way.
+
 ## Adding a tool
 
 Append an entry to the matching `data/tools/<category>.yaml`:

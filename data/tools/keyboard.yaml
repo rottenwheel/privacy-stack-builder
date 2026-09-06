@@ -16,3 +16,12 @@
   criteria: [foss, no-account, no-telemetry, offline]
   why: Modern FOSS keyboard, no network permission.
   warn: Still beta; word suggestions limited.
+- id: futo-keyboard
+  name: FUTO Keyboard
+  category: keyboard
+  platforms: [android]
+  jurisdiction: US
+  url: https://keyboard.futo.org
+  criteria: [source-available, no-account, no-telemetry, offline]
+  why: Offline voice input and swipe typing without any network permission.
+  warn: "FUTO Source First license, not OSI open source. Optional paid license nag."
