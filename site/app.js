@@ -414,6 +414,13 @@
       $("#dlg-suggest").showModal();
     });
     $("#btn-suggest-copy").addEventListener("click", () => copy(suggestYaml()));
+    $("#btn-suggest-close").addEventListener("click", () => $("#dlg-suggest").close());
+    // Enter in a text field must not submit the dialog form (required
+    // fields would block it and the dialog would appear stuck).
+    $("#suggest-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      $("#dlg-suggest").close();
+    });
     $("#btn-suggest-issue").addEventListener("click", () => {
       const form = $("#suggest-form");
       if (!form.reportValidity()) return;
