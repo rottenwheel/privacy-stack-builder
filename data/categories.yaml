@@ -1,128 +1,100 @@
-# Slot order = display order. `max` = how many picks a slot accepts
-# (primary + fallbacks). `require` = extra criteria beyond global policy,
-# `waive` = global criteria that do not apply to this category.
+# Slot order = display order. A slot takes any number of picks, primary
+# first. `require` = extra criteria beyond global policy, `waive` = global
+# criteria that do not apply to this category.
 - id: mobile-os
   label: Mobile OS
   icon: "📱"
-  max: 2
 - id: messenger
   label: Messenger
   icon: "🗣️"
-  max: 4
   require: [e2ee]
 - id: browser
   label: Browser
   icon: "🌐"
-  max: 4
 - id: search
   label: Search
   icon: "🔍"
-  max: 2
   waive: [foss]   # hosted services; index is never open anyway
 - id: network
   label: VPN / DNS
   icon: "🛡️"
-  max: 4
 - id: passwords
   label: Passwords
   icon: "🔑"
-  max: 2
   require: [e2ee]
 - id: email
   label: Email
   icon: "✉️"
-  max: 3
   waive: [foss]   # throwaway/alias services admitted on no-account basis
 - id: wallet
   label: Monero wallet
   icon: "🪙"
-  max: 4
 - id: notes
   label: Notes
   icon: "🗒️"
-  max: 2
 - id: nostr
   label: Nostr client
   icon: "📡"
-  max: 2
 - id: editor
   label: Code editor
   icon: "🛠️"
-  max: 2
 - id: scanner
   label: Document scanner
   icon: "📄"
-  max: 2
 - id: desktop-os
   label: Desktop OS
   icon: "💻"
-  max: 2
 - id: 2fa
   label: 2FA app
   icon: "🔢"
-  max: 2
   require: [offline]
 - id: files
   label: Files & sync
   icon: "📁"
-  max: 3
 - id: homeserver
   label: Home server
   icon: "🖥️"
-  max: 2
   require: [selfhost]
 - id: sharing
   label: Local file sharing
   icon: "📤"
-  max: 2
   require: [offline]
 - id: encryption
   label: File encryption
   icon: "🧊"
-  max: 3
   require: [offline]
 - id: metadata
   label: Metadata removal
   icon: "🧹"
-  max: 2
   require: [offline]
 - id: maps
   label: Maps
   icon: "🗺️"
-  max: 2
   require: [offline]
 - id: appstore
   label: Android app source
   icon: "📦"
-  max: 3
 - id: keyboard
   label: Mobile keyboard
   icon: "⌨️"
-  max: 2
   require: [offline]
 - id: blocking
   label: Ad & tracker blocking
   icon: "🚫"
-  max: 3
 - id: media
   label: Video frontend
   icon: "📺"
-  max: 3
 - id: rss
   label: RSS reader
   icon: "📰"
-  max: 2
 - id: mailclient
   label: Mail client
   icon: "📬"
-  max: 2
 - id: backup
   label: Backup
   icon: "🗄️"
-  max: 2
   require: [e2ee]
 - id: ai
   label: Local AI
   icon: "🧠"
-  max: 2
   require: [offline]

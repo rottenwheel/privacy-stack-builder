@@ -74,14 +74,12 @@ window.STACK_DATA = {
   {
    "id": "mobile-os",
    "label": "Mobile OS",
-   "icon": "📱",
-   "max": 2
+   "icon": "📱"
   },
   {
    "id": "messenger",
    "label": "Messenger",
    "icon": "🗣️",
-   "max": 4,
    "require": [
     "e2ee"
    ]
@@ -89,14 +87,12 @@ window.STACK_DATA = {
   {
    "id": "browser",
    "label": "Browser",
-   "icon": "🌐",
-   "max": 4
+   "icon": "🌐"
   },
   {
    "id": "search",
    "label": "Search",
    "icon": "🔍",
-   "max": 2,
    "waive": [
     "foss"
    ]
@@ -104,14 +100,12 @@ window.STACK_DATA = {
   {
    "id": "network",
    "label": "VPN / DNS",
-   "icon": "🛡️",
-   "max": 4
+   "icon": "🛡️"
   },
   {
    "id": "passwords",
    "label": "Passwords",
    "icon": "🔑",
-   "max": 2,
    "require": [
     "e2ee"
    ]
@@ -120,7 +114,6 @@ window.STACK_DATA = {
    "id": "email",
    "label": "Email",
    "icon": "✉️",
-   "max": 3,
    "waive": [
     "foss"
    ]
@@ -128,44 +121,37 @@ window.STACK_DATA = {
   {
    "id": "wallet",
    "label": "Monero wallet",
-   "icon": "🪙",
-   "max": 4
+   "icon": "🪙"
   },
   {
    "id": "notes",
    "label": "Notes",
-   "icon": "🗒️",
-   "max": 2
+   "icon": "🗒️"
   },
   {
    "id": "nostr",
    "label": "Nostr client",
-   "icon": "📡",
-   "max": 2
+   "icon": "📡"
   },
   {
    "id": "editor",
    "label": "Code editor",
-   "icon": "🛠️",
-   "max": 2
+   "icon": "🛠️"
   },
   {
    "id": "scanner",
    "label": "Document scanner",
-   "icon": "📄",
-   "max": 2
+   "icon": "📄"
   },
   {
    "id": "desktop-os",
    "label": "Desktop OS",
-   "icon": "💻",
-   "max": 2
+   "icon": "💻"
   },
   {
    "id": "2fa",
    "label": "2FA app",
    "icon": "🔢",
-   "max": 2,
    "require": [
     "offline"
    ]
@@ -173,14 +159,12 @@ window.STACK_DATA = {
   {
    "id": "files",
    "label": "Files & sync",
-   "icon": "📁",
-   "max": 3
+   "icon": "📁"
   },
   {
    "id": "homeserver",
    "label": "Home server",
    "icon": "🖥️",
-   "max": 2,
    "require": [
     "selfhost"
    ]
@@ -189,7 +173,6 @@ window.STACK_DATA = {
    "id": "sharing",
    "label": "Local file sharing",
    "icon": "📤",
-   "max": 2,
    "require": [
     "offline"
    ]
@@ -198,7 +181,6 @@ window.STACK_DATA = {
    "id": "encryption",
    "label": "File encryption",
    "icon": "🧊",
-   "max": 3,
    "require": [
     "offline"
    ]
@@ -207,7 +189,6 @@ window.STACK_DATA = {
    "id": "metadata",
    "label": "Metadata removal",
    "icon": "🧹",
-   "max": 2,
    "require": [
     "offline"
    ]
@@ -216,7 +197,6 @@ window.STACK_DATA = {
    "id": "maps",
    "label": "Maps",
    "icon": "🗺️",
-   "max": 2,
    "require": [
     "offline"
    ]
@@ -224,14 +204,12 @@ window.STACK_DATA = {
   {
    "id": "appstore",
    "label": "Android app source",
-   "icon": "📦",
-   "max": 3
+   "icon": "📦"
   },
   {
    "id": "keyboard",
    "label": "Mobile keyboard",
    "icon": "⌨️",
-   "max": 2,
    "require": [
     "offline"
    ]
@@ -239,32 +217,27 @@ window.STACK_DATA = {
   {
    "id": "blocking",
    "label": "Ad & tracker blocking",
-   "icon": "🚫",
-   "max": 3
+   "icon": "🚫"
   },
   {
    "id": "media",
    "label": "Video frontend",
-   "icon": "📺",
-   "max": 3
+   "icon": "📺"
   },
   {
    "id": "rss",
    "label": "RSS reader",
-   "icon": "📰",
-   "max": 2
+   "icon": "📰"
   },
   {
    "id": "mailclient",
    "label": "Mail client",
-   "icon": "📬",
-   "max": 2
+   "icon": "📬"
   },
   {
    "id": "backup",
    "label": "Backup",
    "icon": "🗄️",
-   "max": 2,
    "require": [
     "e2ee"
    ]
@@ -273,7 +246,6 @@ window.STACK_DATA = {
    "id": "ai",
    "label": "Local AI",
    "icon": "🧠",
-   "max": 2,
    "require": [
     "offline"
    ]

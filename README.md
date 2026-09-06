@@ -11,7 +11,7 @@ without a server ever seeing it.
 data/
   criteria.yaml     badges a tool can carry (FOSS, E2EE, no phone #, ...)
   policy.yaml       global criteria required for admission to the pool
-  categories.yaml   slots, display order, max picks, per-slot require/waive
+  categories.yaml   slots, display order, per-slot require/waive
   presets.yaml      threat-model presets (author's stack, everyday, ...)
   tools/*.yaml      one file per category, one entry per tool
 build.py            validates data against policy, emits site/data.js,

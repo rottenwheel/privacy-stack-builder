@@ -79,7 +79,7 @@
       const [cat, list] = part.split("=");
       if (!CAT[cat] || !list) continue;
       const ids = list.split(",").filter((id) => TOOL[id] && TOOL[id].category === cat);
-      if (ids.length) picks[cat] = ids.slice(0, CAT[cat].max);
+      if (ids.length) picks[cat] = ids;
     }
     return picks;
   }
@@ -116,7 +116,7 @@
   // ---------- mutations ----------
   function addPick(cat, id) {
     const list = (state.picks[cat] = state.picks[cat] || []);
-    if (list.includes(id) || list.length >= CAT[cat].max) return;
+    if (list.includes(id)) return;
     list.push(id);
     commit();
   }
@@ -134,7 +134,7 @@
   function applyPreset(p) {
     state.picks = {};
     for (const [cat, ids] of Object.entries(p.picks)) {
-      if (CAT[cat]) state.picks[cat] = ids.filter((id) => TOOL[id]).slice(0, CAT[cat].max);
+      if (CAT[cat]) state.picks[cat] = ids.filter((id) => TOOL[id]);
     }
     commit();
     toast(`Loaded "${p.label}"`);
@@ -179,7 +179,7 @@
     if (mine.length !== theirs.length) return false;
     return theirs.every(([cat, ids]) => {
       const cur = state.picks[cat] || [];
-      const want = ids.filter((id) => TOOL[id]).slice(0, CAT[cat].max);
+      const want = ids.filter((id) => TOOL[id]);
       return cur.length === want.length && cur.every((id, i) => id === want[i]);
     });
   }
@@ -259,7 +259,6 @@
 
   function renderSlot(cat) {
     const picks = state.picks[cat.id] || [];
-    const full = picks.length >= cat.max;
     const pool = D.tools.filter((t) => t.category === cat.id && !picks.includes(t.id));
     const visible = pool.filter(matchesFilter);
     // While searching, only slots with a hit (in the pool or among the picks) stay on screen.
@@ -284,7 +283,7 @@
     const candItems = visible.map((t) =>
       el(
         "li",
-        { class: "cand" + (full ? " dim" : "") },
+        { class: "cand" },
         el(
           "div",
           null,
@@ -293,7 +292,7 @@
           t.warn && el("p", { class: "warn" }, "⚠ ", t.warn),
           el("div", { class: "meta" }, ...badgesFor(t), ...t.platforms.map((p) => el("span", { class: "badge plat" }, p)))
         ),
-        el("button", { class: "small primary", disabled: full ? "" : null, onclick: () => addPick(cat.id, t.id) }, "+ add")
+        el("button", { class: "small primary", onclick: () => addPick(cat.id, t.id) }, "+ add")
       )
     );
 
@@ -308,7 +307,7 @@
         { class: "slot-head" },
         el("h2", null, `${cat.icon} ${cat.label}`),
         req.length ? el("span", { class: "req", title: "Required for this slot" }, "needs " + req.join(", ")) : null,
-        el("span", { class: "count" }, `${picks.length}/${cat.max}`)
+        picks.length ? el("span", { class: "count" }, `${picks.length} picked`) : null
       ),
       el("ul", { class: "picks" }, ...pickItems),
       el(
