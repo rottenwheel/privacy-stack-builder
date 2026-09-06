@@ -32,8 +32,8 @@
   jurisdiction: CH
   url: https://threema.ch
   criteria: [foss, e2ee, no-phone, audit]
-  why: Swiss, one-time payment, no phone number needed. Popular in DACH.
-  warn: Server side is closed source. Paid app.
+  why: Swiss company and servers, one-time payment, no phone number needed. Popular in DACH.
+  warn: "Owned by German private equity since 2020 (Afinum, then Comitis Capital from January 2026); lost the Swiss Hosting label in April 2026. Server side is closed source. Paid app."
 - id: briar
   name: Briar
   category: messenger
