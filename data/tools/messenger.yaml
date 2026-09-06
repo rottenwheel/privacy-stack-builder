@@ -43,6 +43,15 @@
   criteria: [foss, e2ee, no-phone, no-account, audit, offline]
   why: Peer-to-peer over Tor, Wi-Fi or Bluetooth. Works with the internet down.
   warn: Android only. Both parties must be online to deliver messages.
+- id: bitchat
+  name: Bitchat
+  category: messenger
+  platforms: [android, ios, macos]
+  jurisdiction: none
+  url: https://bitchat.free
+  criteria: [foss, e2ee, no-phone, no-account, offline, repro]
+  why: Bluetooth mesh chat with no servers or accounts; private messages use the Noise protocol.
+  warn: "No independent audit yet. Bluetooth range unless you opt into the Nostr relay fallback; public and location channels are broadcasts."
 - id: element
   name: Element (Matrix)
   category: messenger

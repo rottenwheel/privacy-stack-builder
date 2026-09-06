@@ -66,6 +66,11 @@
   label: Files & sync
   icon: "📁"
   max: 3
+- id: homeserver
+  label: Home server
+  icon: "🖥️"
+  max: 2
+  require: [selfhost]
 - id: sharing
   label: Local file sharing
   icon: "📤"

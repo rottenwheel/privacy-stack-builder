@@ -177,6 +177,15 @@ window.STACK_DATA = {
    "max": 3
   },
   {
+   "id": "homeserver",
+   "label": "Home server",
+   "icon": "🖥️",
+   "max": 2,
+   "require": [
+    "selfhost"
+   ]
+  },
+  {
    "id": "sharing",
    "label": "Local file sharing",
    "icon": "📤",
@@ -335,6 +344,9 @@ window.STACK_DATA = {
     ],
     "files": [
      "syncthing"
+    ],
+    "homeserver": [
+     "umbrel"
     ],
     "sharing": [
      "localsend"
@@ -737,6 +749,10 @@ window.STACK_DATA = {
      "nextcloud",
      "syncthing",
      "immich"
+    ],
+    "homeserver": [
+     "umbrel",
+     "startos"
     ],
     "sharing": [
      "localsend",
@@ -1764,6 +1780,60 @@ window.STACK_DATA = {
    "warn": "Server sees plaintext. Fast-moving project with occasional breaking upgrades."
   },
   {
+   "id": "umbrel",
+   "name": "umbrelOS",
+   "category": "homeserver",
+   "platforms": [
+    "linux"
+   ],
+   "jurisdiction": "US",
+   "url": "https://umbrel.com",
+   "criteria": [
+    "source-available",
+    "no-account",
+    "selfhost",
+    "offline"
+   ],
+   "why": "One-click app store on a Pi or old PC; official Monero and Bitcoin node apps, Nextcloud, Immich and 300 more.",
+   "warn": "PolyForm Noncommercial license, not OSI. Company sells hardware and steers the app store."
+  },
+  {
+   "id": "startos",
+   "name": "StartOS",
+   "category": "homeserver",
+   "platforms": [
+    "linux"
+   ],
+   "jurisdiction": "US",
+   "url": "https://start9.com",
+   "criteria": [
+    "foss",
+    "no-account",
+    "selfhost",
+    "offline"
+   ],
+   "why": "Sovereign server OS from Start9, MIT-licensed, Tor-first, Monero and Bitcoin node packages.",
+   "warn": "Smaller app catalog than Umbrel; packaging is bespoke, not plain Docker."
+  },
+  {
+   "id": "yunohost",
+   "name": "YunoHost",
+   "category": "homeserver",
+   "platforms": [
+    "linux"
+   ],
+   "jurisdiction": "none",
+   "url": "https://yunohost.org",
+   "criteria": [
+    "foss",
+    "no-account",
+    "selfhost",
+    "offline"
+   ],
+   "why": "Debian-based, community-run, hundreds of packaged apps including mail, Nextcloud and Matrix.",
+   "warn": "Aimed at people comfortable with DNS, ports and a shell."
+  },
+  {
    "id": "heliboard",
    "name": "HeliBoard",
    "category": "keyboard",
@@ -2110,6 +2180,28 @@ window.STACK_DATA = {
    ],
    "why": "Peer-to-peer over Tor, Wi-Fi or Bluetooth. Works with the internet down.",
    "warn": "Android only. Both parties must be online to deliver messages."
+  },
+  {
+   "id": "bitchat",
+   "name": "Bitchat",
+   "category": "messenger",
+   "platforms": [
+    "android",
+    "ios",
+    "macos"
+   ],
+   "jurisdiction": "none",
+   "url": "https://bitchat.free",
+   "criteria": [
+    "foss",
+    "e2ee",
+    "no-phone",
+    "no-account",
+    "offline",
+    "repro"
+   ],
+   "why": "Bluetooth mesh chat with no servers or accounts; private messages use the Noise protocol.",
+   "warn": "No independent audit yet. Bluetooth range unless you opt into the Nostr relay fallback; public and location channels are broadcasts."
   },
   {
    "id": "element",
