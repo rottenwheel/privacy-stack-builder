@@ -3,3 +3,4 @@ __pycache__/
 *.png
 deploy/runner/.env
 deploy/runner/data/
+!site/og.png
