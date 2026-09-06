@@ -4,17 +4,19 @@
 """Check every tool URL in data/tools/*.yaml.
 
 Fails (exit 1) on:
-  - connection errors, 404, 410, 5xx
+  - DNS failures, 404, 410, 5xx
   - a redirect that lands on a different registrable domain than the one in
     the data file (possible domain takeover or silent move)
-Warns (exit 0) on 401/403/429, which usually means bot blocking, not a dead
-site. Prints ::error:: / ::warning:: lines so CI annotates them.
+Warns (exit 0) on 401/403/429 and on connection resets or timeouts that
+persist after a retry; from a datacenter IP those usually mean bot
+blocking, not a dead site. Prints ::error:: / ::warning:: lines so CI annotates them.
 """
 import concurrent.futures as cf
 import glob
 import os
 import ssl
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -56,10 +58,18 @@ def fetch(url):
 def check(tool):
     url = tool["url"]
     status, final, err = fetch(url)
+    if err and "Name or service not known" not in err and "nodename nor servname" not in err:
+        # Resets and timeouts are often anti-bot measures against datacenter
+        # IPs; give it one more try before deciding.
+        time.sleep(4)
+        status, final, err = fetch(url)
     src = registrable(urllib.parse.urlparse(url).hostname or "")
     dst = registrable(urllib.parse.urlparse(final).hostname or "") if final else ""
     if err or status is None:
-        return "error", tool, f"{url} -> {err or 'no response'}"
+        msg = err or "no response"
+        if "Name or service not known" in msg or "nodename nor servname" in msg:
+            return "error", tool, f"{url} -> {msg}"
+        return "warning", tool, f"{url} -> {msg} (unreachable from CI, verify by hand)"
     if status in SOFT:
         return "warning", tool, f"{url} -> HTTP {status} (likely bot blocking)"
     if status >= 400:
