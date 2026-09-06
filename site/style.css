@@ -50,6 +50,7 @@ select { font: inherit; background: var(--panel-2); color: var(--text); border: 
 .chip.static { cursor: default; }
 .chip.static.hit { border-color: var(--ok); color: var(--ok); }
 .preset { display: inline-flex; gap: .4rem; align-items: center; }
+.preset.on { border-color: var(--accent); color: var(--accent); background: var(--panel); }
 .preset small { color: var(--muted); }
 .platform { color: var(--muted); font-size: .85rem; }
 

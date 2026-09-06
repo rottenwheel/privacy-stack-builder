@@ -166,12 +166,30 @@
     ];
   }
 
+  function presetMatches(p) {
+    // Exact match: same slots filled, same picks in the same order.
+    const mine = Object.entries(state.picks).filter(([, ids]) => ids.length);
+    const theirs = Object.entries(p.picks).filter(([cat, ids]) => CAT[cat] && ids.length);
+    if (mine.length !== theirs.length) return false;
+    return theirs.every(([cat, ids]) => {
+      const cur = state.picks[cat] || [];
+      const want = ids.filter((id) => TOOL[id]).slice(0, CAT[cat].max);
+      return cur.length === want.length && cur.every((id, i) => id === want[i]);
+    });
+  }
   function renderPresets() {
     const root = $("#presets");
     root.replaceChildren(
-      ...D.presets.map((p) =>
-        el("button", { class: "preset", title: p.desc, onclick: () => applyPreset(p) }, p.icon, " ", p.label)
-      )
+      ...D.presets.map((p) => {
+        const on = presetMatches(p);
+        return el(
+          "button",
+          { class: "preset" + (on ? " on" : ""), "aria-pressed": on ? "true" : "false", title: p.desc, onclick: () => applyPreset(p) },
+          p.icon,
+          " ",
+          p.label
+        );
+      })
     );
   }
 
@@ -351,6 +369,7 @@
   }
 
   function render() {
+    renderPresets();
     renderFilters();
     renderSlots();
     renderSummary();
@@ -477,7 +496,6 @@
   }
 
   load();
-  renderPresets();
   renderPolicy();
   initSuggest();
   render();
