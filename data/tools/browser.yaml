@@ -1,0 +1,54 @@
+- id: tor-browser
+  name: Tor Browser
+  category: browser
+  platforms: [android, linux, macos, windows]
+  jurisdiction: US
+  url: https://www.torproject.org
+  criteria: [foss, no-account, no-telemetry, audit, repro]
+  why: For anything sensitive. Anonymity set of every other Tor user.
+  warn: Slow. Never log into personal accounts through it.
+- id: brave
+  name: Brave
+  category: browser
+  platforms: [android, ios, linux, macos, windows]
+  jurisdiction: US
+  url: https://brave.com
+  criteria: [foss, no-account]
+  why: Chromium with fingerprint randomization and blocking built in. Daily driver.
+  warn: Disable Brave Rewards, Wallet, and News. Sends some update pings by default.
+- id: vanadium
+  name: Vanadium
+  category: browser
+  platforms: [android]
+  jurisdiction: CA
+  url: https://github.com/GrapheneOS/Vanadium
+  criteria: [foss, no-account, no-telemetry, repro]
+  why: GrapheneOS's hardened Chromium. Ships with the OS, patched fast.
+  warn: GrapheneOS only. No extension support.
+- id: ungoogled-chromium
+  name: Ungoogled Chromium
+  category: browser
+  platforms: [android, linux, macos, windows]
+  jurisdiction: none
+  url: https://ungoogled-software.github.io
+  criteria: [foss, no-account, no-telemetry]
+  why: Chromium with every Google service call ripped out.
+  warn: No auto-update. You are responsible for staying patched.
+- id: mullvad-browser
+  name: Mullvad Browser
+  category: browser
+  platforms: [linux, macos, windows]
+  jurisdiction: SE
+  url: https://mullvad.net/browser
+  criteria: [foss, no-account, no-telemetry]
+  why: Tor Browser's fingerprinting defenses without the Tor network. Pair with a VPN.
+  warn: Desktop only.
+- id: librewolf
+  name: LibreWolf
+  category: browser
+  platforms: [linux, macos, windows]
+  jurisdiction: none
+  url: https://librewolf.net
+  criteria: [foss, no-account, no-telemetry]
+  why: Firefox with telemetry gone and privacy defaults pre-applied.
+  warn: Desktop only. Some sites break under strict resist-fingerprinting.

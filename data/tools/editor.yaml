@@ -1,0 +1,27 @@
+- id: vscodium
+  name: VSCodium
+  category: editor
+  platforms: [linux, macos, windows]
+  jurisdiction: none
+  url: https://vscodium.com
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: VS Code without Microsoft telemetry and branding.
+  warn: Some Microsoft extensions are license-locked to VS Code. Uses Open VSX registry.
+- id: neovim
+  name: Neovim
+  category: editor
+  platforms: [linux, macos, windows]
+  jurisdiction: none
+  url: https://neovim.io
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: Terminal editor, no network at all unless a plugin adds it.
+  warn: Audit your plugin manager; plugins are arbitrary code.
+- id: helix
+  name: Helix
+  category: editor
+  platforms: [linux, macos, windows]
+  jurisdiction: none
+  url: https://helix-editor.com
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: Batteries-included modal editor, no plugin ecosystem to vet.
+  warn: No plugins means no plugins.

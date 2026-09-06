@@ -1,0 +1,59 @@
+# Slot order = display order. `max` = how many picks a slot accepts
+# (primary + fallbacks). `require` = extra criteria beyond global policy,
+# `waive` = global criteria that do not apply to this category.
+- id: mobile-os
+  label: Mobile OS
+  icon: "📱"
+  max: 2
+- id: messenger
+  label: Messenger
+  icon: "🗣️"
+  max: 4
+  require: [e2ee]
+- id: browser
+  label: Browser
+  icon: "🌐"
+  max: 4
+- id: search
+  label: Search
+  icon: "🔍"
+  max: 2
+  waive: [foss]   # hosted services; index is never open anyway
+- id: network
+  label: VPN / DNS
+  icon: "🛡️"
+  max: 4
+- id: passwords
+  label: Passwords
+  icon: "🔑"
+  max: 2
+  require: [e2ee]
+- id: email
+  label: Email
+  icon: "✉️"
+  max: 3
+  waive: [foss]   # throwaway/alias services admitted on no-account basis
+- id: wallet
+  label: Monero wallet
+  icon: "🪙"
+  max: 4
+- id: notes
+  label: Notes
+  icon: "🗒️"
+  max: 2
+- id: nostr
+  label: Nostr client
+  icon: "📡"
+  max: 2
+- id: editor
+  label: Code editor
+  icon: "🛠️"
+  max: 2
+- id: scanner
+  label: Document scanner
+  icon: "📄"
+  max: 2
+- id: desktop-os
+  label: Desktop OS
+  icon: "💻"
+  max: 2

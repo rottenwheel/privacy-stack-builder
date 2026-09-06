@@ -1,0 +1,54 @@
+- id: ubuntu-debloated
+  name: Ubuntu (snap-free, telemetry removed)
+  category: desktop-os
+  platforms: [linux]
+  jurisdiction: GB
+  url: https://ubuntu.com
+  criteria: [foss, no-account]
+  why: Best hardware support and docs. Strip snapd, ubuntu-report, apport, and it is fine.
+  warn: Needs manual cleanup after install. Canonical ships telemetry and snap by default.
+- id: debian
+  name: Debian
+  category: desktop-os
+  platforms: [linux]
+  jurisdiction: none
+  url: https://www.debian.org
+  criteria: [foss, no-account, no-telemetry, repro]
+  why: No vendor, no telemetry, no snap. Stable and boring.
+  warn: Older packages on stable. popularity-contest asks to opt in; say no.
+- id: fedora
+  name: Fedora
+  category: desktop-os
+  platforms: [linux]
+  jurisdiction: US
+  url: https://fedoraproject.org
+  criteria: [foss, no-account]
+  why: Fresh packages, SELinux enforcing by default, Wayland first.
+  warn: DNF countme pings Fedora servers. Disable it.
+- id: qubes
+  name: Qubes OS
+  category: desktop-os
+  platforms: [linux]
+  jurisdiction: none
+  url: https://www.qubes-os.org
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: Compartmentalize everything into VMs. What Snowden uses.
+  warn: Heavy hardware requirements. Steep learning curve.
+- id: tails
+  name: Tails
+  category: desktop-os
+  platforms: [linux]
+  jurisdiction: none
+  url: https://tails.net
+  criteria: [foss, no-account, no-telemetry, repro]
+  why: Amnesic live system, everything through Tor. For the sensitive session, not daily use.
+  warn: Forgets everything on reboot unless you set up persistence.
+- id: mint
+  name: Linux Mint
+  category: desktop-os
+  platforms: [linux]
+  jurisdiction: IE
+  url: https://linuxmint.com
+  criteria: [foss, no-account, no-telemetry]
+  why: Ubuntu base without snap or telemetry, friendly for switchers.
+  warn: Cinnamon on X11 for now; fingerprinting-relevant only if you care.

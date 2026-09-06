@@ -1,0 +1,27 @@
+- id: grapheneos
+  name: GrapheneOS
+  category: mobile-os
+  platforms: [android]
+  jurisdiction: CA
+  url: https://grapheneos.org
+  criteria: [foss, no-account, no-telemetry, repro, offline]
+  why: Hardened Android with verified boot, sandboxed Play Services, per-app network toggles. Only Android worth running.
+  warn: Pixel hardware only.
+- id: calyxos
+  name: CalyxOS
+  category: mobile-os
+  platforms: [android]
+  jurisdiction: US
+  url: https://calyxos.org
+  criteria: [foss, no-account, no-telemetry]
+  why: Pixel and Fairphone support, microG instead of sandboxed Play.
+  warn: microG runs with elevated privileges; weaker isolation than GrapheneOS.
+- id: eos
+  name: /e/OS
+  category: mobile-os
+  platforms: [android]
+  jurisdiction: FR
+  url: https://e.foundation
+  criteria: [foss, no-telemetry]
+  why: Broad device support, de-Googled out of the box with its own cloud.
+  warn: Lags upstream security patches; verified boot missing on most devices.

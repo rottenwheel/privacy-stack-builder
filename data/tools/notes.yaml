@@ -1,0 +1,36 @@
+- id: joplin
+  name: Joplin
+  category: notes
+  platforms: [android, ios, linux, macos, windows]
+  jurisdiction: none
+  url: https://joplinapp.org
+  criteria: [foss, e2ee, selfhost, no-account, offline]
+  why: Markdown notes with E2EE sync over your own WebDAV or Nextcloud.
+  warn: Enable E2EE manually; it is off by default.
+- id: fromscratch
+  name: FromScratch
+  category: notes
+  platforms: [linux, macos, windows]
+  jurisdiction: none
+  url: https://fromscratch.rocks
+  criteria: [foss, no-account, offline]
+  why: One autosaving scratch file. Zero ceremony.
+  warn: Plain text on disk, no encryption, no sync.
+- id: standard-notes
+  name: Standard Notes
+  category: notes
+  platforms: [android, ios, linux, macos, windows, web]
+  jurisdiction: US
+  url: https://standardnotes.com
+  criteria: [foss, e2ee, selfhost, audit]
+  why: Audited E2EE, self-hostable server, long track record.
+  warn: Now owned by Proton. Most features paywalled.
+- id: notesnook
+  name: Notesnook
+  category: notes
+  platforms: [android, ios, linux, macos, windows, web]
+  jurisdiction: PK
+  url: https://notesnook.com
+  criteria: [foss, e2ee, selfhost, audit]
+  why: Rich editor with E2EE by default and self-host option.
+  warn: Account required for sync.

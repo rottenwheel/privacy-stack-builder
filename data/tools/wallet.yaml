@@ -1,0 +1,45 @@
+- id: monero-gui
+  name: Monero GUI
+  category: wallet
+  platforms: [linux, macos, windows]
+  jurisdiction: none
+  url: https://www.getmonero.org/downloads/
+  criteria: [foss, no-account, offline, repro]
+  why: Reference wallet. Run your own node with it and trust nobody.
+  warn: Full node needs disk and sync time.
+- id: feather
+  name: Feather Wallet
+  category: wallet
+  platforms: [linux, macos, windows]
+  jurisdiction: none
+  url: https://featherwallet.org
+  criteria: [foss, no-account, offline, repro]
+  why: Lightweight desktop wallet with Tor built in and remote-node support.
+  warn: Trusts a remote node unless you point it at your own.
+- id: monerujo
+  name: Monerujo
+  category: wallet
+  platforms: [android]
+  jurisdiction: none
+  url: https://www.monerujo.io
+  criteria: [foss, no-account, offline]
+  why: Mature Android wallet with Tor support and node switching.
+  warn: Android only.
+- id: monero-com
+  name: Monero.com
+  category: wallet
+  platforms: [android, ios]
+  jurisdiction: US
+  url: https://monero.com
+  criteria: [foss, no-account, offline]
+  why: Cake Wallet's Monero-only build. Simplest onboarding for phones.
+  warn: Defaults to Cake's nodes; set your own.
+- id: cake
+  name: Cake Wallet
+  category: wallet
+  platforms: [android, ios, linux, macos, windows]
+  jurisdiction: US
+  url: https://cakewallet.com
+  criteria: [foss, no-account, offline]
+  why: Multi-coin with built-in swaps if you also hold other assets.
+  warn: Multi-coin surface area. Prefer Monero.com if you only need XMR.

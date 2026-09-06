@@ -1,0 +1,73 @@
+# Threat-model presets. Order within a category = primary first, then fallbacks.
+- id: author
+  label: Author's stack 2026
+  icon: "🧑‍💻"
+  desc: The pinned X post, verbatim.
+  picks:
+    mobile-os: [grapheneos]
+    messenger: [simplex, signal, session, threema]
+    browser: [tor-browser, brave, vanadium, ungoogled-chromium]
+    search: [kagi, brave-search]
+    network: [mullvad, ivpn, nymvpn, invizible]
+    passwords: [bitwarden, vaultwarden]
+    email: [selfhost-mail, neromail, tuta]
+    wallet: [monero-com, monerujo, monero-gui, feather]
+    notes: [joplin, fromscratch]
+    nostr: [amethyst]
+    editor: [vscodium]
+    scanner: [oss-document-scanner]
+    desktop-os: [ubuntu-debloated]
+- id: everyday
+  label: Everyday
+  icon: "☕"
+  desc: Big privacy gain, zero self-hosting, family-compatible.
+  picks:
+    mobile-os: [grapheneos]
+    messenger: [signal, threema]
+    browser: [brave, mullvad-browser]
+    search: [brave-search, duckduckgo]
+    network: [mullvad]
+    passwords: [bitwarden]
+    email: [proton-mail, addy]
+    wallet: [monero-com, cake]
+    notes: [joplin]
+    nostr: [amethyst]
+    editor: [vscodium]
+    scanner: [oss-document-scanner]
+    desktop-os: [mint]
+- id: journalist
+  label: Source protection
+  icon: "🕵️"
+  desc: Anonymity over convenience. Assume targeted adversary.
+  picks:
+    mobile-os: [grapheneos]
+    messenger: [simplex, briar, signal]
+    browser: [tor-browser, mullvad-browser]
+    search: [searxng, startpage]
+    network: [mullvad, ivpn, nymvpn]
+    passwords: [keepassxc]
+    email: [proton-mail, addy]
+    wallet: [feather, monerujo]
+    notes: [standard-notes]
+    nostr: [coracle]
+    editor: [neovim]
+    scanner: [openscan]
+    desktop-os: [qubes, tails]
+- id: selfhost
+  label: Self-host everything
+  icon: "🏠"
+  desc: No third-party operator holds your data.
+  picks:
+    mobile-os: [grapheneos]
+    messenger: [simplex, element]
+    browser: [brave, vanadium, librewolf]
+    search: [searxng]
+    network: [mullvad, rethinkdns]
+    passwords: [bitwarden, vaultwarden]
+    email: [selfhost-mail, addy]
+    wallet: [monero-gui, monerujo]
+    notes: [joplin]
+    nostr: [amethyst, coracle]
+    editor: [vscodium, helix]
+    scanner: [oss-document-scanner, paperless-ngx]
+    desktop-os: [debian]

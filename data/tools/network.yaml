@@ -1,0 +1,54 @@
+- id: mullvad
+  name: Mullvad VPN
+  category: network
+  platforms: [android, ios, linux, macos, windows]
+  jurisdiction: SE
+  url: https://mullvad.net
+  criteria: [foss, no-account, xmr, audit, no-telemetry, repro]
+  why: Numbered accounts, no email, pays in Monero or cash. Diskless servers, audited.
+  warn: Port forwarding removed. Flat price, no discounts.
+- id: ivpn
+  name: IVPN
+  category: network
+  platforms: [android, ios, linux, macos, windows]
+  jurisdiction: GI
+  url: https://www.ivpn.net
+  criteria: [foss, no-account, xmr, audit, no-telemetry]
+  why: Same no-email model as Mullvad, Monero accepted, audited. Good backup provider.
+  warn: Smaller server fleet.
+- id: protonvpn
+  name: Proton VPN
+  category: network
+  platforms: [android, ios, linux, macos, windows]
+  jurisdiction: CH
+  url: https://protonvpn.com
+  criteria: [foss, audit, no-telemetry]
+  why: Swiss, audited, free tier for the budget-constrained.
+  warn: Account required. Monero not accepted (Bitcoin and cash are).
+- id: nymvpn
+  name: NymVPN
+  category: network
+  platforms: [android, ios, linux, macos, windows]
+  jurisdiction: CH
+  url: https://nym.com
+  criteria: [foss, xmr, no-telemetry]
+  why: Mixnet mode adds timing obfuscation that plain VPNs and Tor lack. Pays in Monero.
+  warn: Young project. Mixnet mode is slow; use for messaging, not streaming.
+- id: invizible
+  name: InviZible Pro
+  category: network
+  platforms: [android]
+  jurisdiction: none
+  url: https://invizible.net
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: DNSCrypt, Tor and I2P in one Android app. Encrypted DNS for every app.
+  warn: Android only. Conflicts with a VPN app unless configured in proxy mode.
+- id: rethinkdns
+  name: Rethink DNS
+  category: network
+  platforms: [android]
+  jurisdiction: none
+  url: https://rethinkdns.com
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: Per-app firewall plus encrypted DNS, no root needed.
+  warn: Android only. Uses the VPN slot, so pair with WireGuard config inside it.

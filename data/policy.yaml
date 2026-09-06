@@ -1,0 +1,7 @@
+# Admission policy for the pool. Change here, rebuild, and tools that no
+# longer qualify are dropped from site/data.js with a build warning.
+required:
+  - foss
+# Criteria that only make sense for some categories are not required
+# globally. Category-specific requirements can be added per category in
+# data/categories.yaml under `require`.

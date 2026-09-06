@@ -1,0 +1,54 @@
+- id: simplex
+  name: SimpleX Chat
+  category: messenger
+  platforms: [android, ios, linux, macos, windows]
+  jurisdiction: GB
+  url: https://simplex.chat
+  criteria: [foss, e2ee, no-phone, no-account, selfhost, audit, repro]
+  why: No user identifiers at all, not even random ones. Relays can be self-hosted.
+  warn: Small user base; multi-device sync is limited.
+- id: signal
+  name: Signal
+  category: messenger
+  platforms: [android, ios, linux, macos, windows]
+  jurisdiction: US
+  url: https://signal.org
+  criteria: [foss, e2ee, audit, repro]
+  why: Best crypto with mass adoption. The one you can get family onto.
+  warn: Phone number required at signup. Centralized servers in the US.
+- id: session
+  name: Session
+  category: messenger
+  platforms: [android, ios, linux, macos, windows]
+  jurisdiction: CH
+  url: https://getsession.org
+  criteria: [foss, e2ee, no-phone, no-account]
+  why: No phone number, onion-routed over a decentralized node network.
+  warn: Dropped forward secrecy and deniability in its protocol; weaker than Signal crypto.
+- id: threema
+  name: Threema
+  category: messenger
+  platforms: [android, ios, web]
+  jurisdiction: CH
+  url: https://threema.ch
+  criteria: [foss, e2ee, no-phone, audit]
+  why: Swiss, one-time payment, no phone number needed. Popular in DACH.
+  warn: Server side is closed source. Paid app.
+- id: briar
+  name: Briar
+  category: messenger
+  platforms: [android]
+  jurisdiction: DE
+  url: https://briarproject.org
+  criteria: [foss, e2ee, no-phone, no-account, audit, offline]
+  why: Peer-to-peer over Tor, Wi-Fi or Bluetooth. Works with the internet down.
+  warn: Android only. Both parties must be online to deliver messages.
+- id: element
+  name: Element (Matrix)
+  category: messenger
+  platforms: [android, ios, linux, macos, windows, web]
+  jurisdiction: GB
+  url: https://element.io
+  criteria: [foss, e2ee, no-phone, selfhost, audit]
+  why: Federated, self-hostable, bridges to everything.
+  warn: Metadata (room membership, reactions) is not encrypted and spreads across federated servers.

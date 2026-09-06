@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; form-action 'none'; base-uri 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Privacy Stack Builder</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Crect width=%2716%27 height=%2716%27 rx=%273%27 fill=%27%23ff6600%27/%3E%3C/svg%3E">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <h1>Privacy Stack Builder</h1>
+    <p class="tag">Pick one tool per slot from a pool that passes the <a href="#policy" id="policy-link">admission policy</a>. Share the result as a link or paste it as a post.</p>
+  </div>
+  <div class="actions">
+    <button id="btn-share" class="primary" title="Copy a link that encodes this stack in the URL fragment">Copy link</button>
+    <button id="btn-export" title="Render the stack as a post">Export post</button>
+    <button id="btn-reset" class="ghost">Reset</button>
+  </div>
+</header>
+
+<section class="presets" aria-label="Presets">
+  <span class="label">Start from</span>
+  <div id="presets"></div>
+</section>
+
+<section class="filters" aria-label="Pool filters">
+  <span class="label">Only show tools that are</span>
+  <div id="filter-criteria" class="chips"></div>
+  <label class="platform">on
+    <select id="filter-platform">
+      <option value="">any platform</option>
+    </select>
+  </label>
+</section>
+
+<main class="layout">
+  <div id="slots" class="slots"></div>
+  <aside class="summary" id="summary"></aside>
+</main>
+
+<dialog id="dlg-export">
+  <form method="dialog">
+    <h2>Your stack as a post</h2>
+    <textarea id="export-text" rows="18" readonly></textarea>
+    <div class="row">
+      <button type="button" id="btn-copy-export" class="primary">Copy</button>
+      <button type="submit" class="ghost">Close</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="dlg-policy">
+  <form method="dialog">
+    <h2>Admission policy</h2>
+    <div id="policy-body"></div>
+    <div class="row"><button type="submit" class="ghost">Close</button></div>
+  </form>
+</dialog>
+
+<div id="toast" class="toast" hidden></div>
+
+<footer>
+  <p>Static page. No cookies, no analytics, no external requests. Your stack lives in the URL fragment and this browser's storage only.</p>
+  <p>Pool data is versioned in <code>data/*.yaml</code>. Propose a tool by pull request; it is admitted when the build passes the policy.</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

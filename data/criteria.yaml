@@ -1,0 +1,42 @@
+# Criteria badges. A tool must satisfy every criterion listed under `required`
+# in data/policy.yaml to be admitted to the pool.
+- id: foss
+  label: FOSS
+  icon: "🔓"
+  desc: Client source code is published under an OSI-approved license.
+- id: e2ee
+  label: E2EE
+  icon: "🔐"
+  desc: Content is end-to-end encrypted; the operator cannot read it.
+- id: no-phone
+  label: No phone #
+  icon: "📵"
+  desc: No phone number required to sign up or use.
+- id: no-account
+  label: No account
+  icon: "👤"
+  desc: Usable without registering an identity (email, phone, login).
+- id: selfhost
+  label: Self-host
+  icon: "🏠"
+  desc: Server side can be run on your own infrastructure.
+- id: xmr
+  label: Pays in XMR
+  icon: "🪙"
+  desc: Monero accepted as payment (where payment exists at all).
+- id: no-telemetry
+  label: No telemetry
+  icon: "🔇"
+  desc: No usage data sent home by default.
+- id: audit
+  label: Audited
+  icon: "🧪"
+  desc: At least one published independent security audit.
+- id: repro
+  label: Reproducible
+  icon: "🧱"
+  desc: Reproducible builds so binaries can be verified against source.
+- id: offline
+  label: Local-first
+  icon: "💾"
+  desc: Core function works with no cloud or account; data stays on device.

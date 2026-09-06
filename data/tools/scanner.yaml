@@ -1,0 +1,27 @@
+- id: oss-document-scanner
+  name: OSS Document Scanner
+  category: scanner
+  platforms: [android, ios]
+  jurisdiction: none
+  url: https://github.com/Akylas/com.akylas.documentscanner
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: On-device OCR and PDF export. Nothing leaves the phone.
+  warn: Young project; OCR quality varies by language.
+- id: openscan
+  name: OpenScan
+  category: scanner
+  platforms: [android]
+  jurisdiction: none
+  url: https://github.com/Ethereal-Developers-Inc/OpenScan
+  criteria: [foss, no-account, no-telemetry, offline]
+  why: Simple, on F-Droid, no permissions beyond camera.
+  warn: No OCR.
+- id: paperless-ngx
+  name: Paperless-ngx
+  category: scanner
+  platforms: [linux]
+  jurisdiction: none
+  url: https://docs.paperless-ngx.com
+  criteria: [foss, selfhost, no-telemetry, offline]
+  why: Self-hosted archive with OCR and full-text search for everything you scan.
+  warn: Server, not a scanner. Pair it with a mobile scanner app.

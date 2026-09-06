@@ -1,0 +1,27 @@
+- id: amethyst
+  name: Amethyst
+  category: nostr
+  platforms: [android]
+  jurisdiction: none
+  url: https://github.com/vitorpamplona/amethyst
+  criteria: [foss, no-phone, no-account, no-telemetry]
+  why: Most complete Android client, Tor via Orbot, keys stay local with Amber.
+  warn: Feature-heavy; large attack surface.
+- id: damus
+  name: Damus
+  category: nostr
+  platforms: [ios]
+  jurisdiction: US
+  url: https://damus.io
+  criteria: [foss, no-phone, no-account]
+  why: Reference iOS client.
+  warn: iOS only.
+- id: coracle
+  name: Coracle
+  category: nostr
+  platforms: [web]
+  jurisdiction: none
+  url: https://coracle.social
+  criteria: [foss, no-phone, no-account, selfhost]
+  why: Web client with strong relay selection and NIP-07 signer support.
+  warn: Web app; use a browser extension signer, never paste your nsec.

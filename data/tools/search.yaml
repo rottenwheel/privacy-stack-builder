@@ -1,0 +1,45 @@
+- id: kagi
+  name: Kagi
+  category: search
+  platforms: [web]
+  jurisdiction: US
+  url: https://kagi.com
+  criteria: [no-telemetry]
+  why: Paid, no ads, no tracking. Paying not to be the product.
+  warn: Requires an account and a payment method tied to you. Closed source.
+- id: brave-search
+  name: Brave Search
+  category: search
+  platforms: [web]
+  jurisdiction: US
+  url: https://search.brave.com
+  criteria: [no-account, no-telemetry]
+  why: Own independent index, no account, works over Tor.
+  warn: Closed source backend. Anonymous usage metrics on by default; opt out.
+- id: searxng
+  name: SearXNG
+  category: search
+  platforms: [web]
+  jurisdiction: none
+  url: https://docs.searxng.org
+  criteria: [foss, no-account, selfhost, no-telemetry]
+  why: Self-hosted metasearch. Upstream engines only see your server.
+  warn: Public instances vary in trustworthiness. Run your own.
+- id: startpage
+  name: Startpage
+  category: search
+  platforms: [web]
+  jurisdiction: NL
+  url: https://www.startpage.com
+  criteria: [no-account, no-telemetry]
+  why: Google results proxied without Google seeing you.
+  warn: Owned by System1, an ad-tech company. Closed source.
+- id: duckduckgo
+  name: DuckDuckGo
+  category: search
+  platforms: [web]
+  jurisdiction: US
+  url: https://duckduckgo.com
+  criteria: [no-account, no-telemetry]
+  why: Ubiquitous, no account, decent results.
+  warn: Results come mostly from Bing. Closed source.

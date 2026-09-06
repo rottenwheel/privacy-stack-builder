@@ -1,0 +1,45 @@
+- id: selfhost-mail
+  name: Self-hosted mail (Stalwart / Mailcow)
+  category: email
+  platforms: [linux]
+  jurisdiction: none
+  url: https://stalw.art
+  criteria: [foss, selfhost, no-telemetry]
+  why: Full control of storage and logs. Stalwart is a modern single binary; Mailcow is the batteries-included stack.
+  warn: Deliverability and reputation are on you. Not E2EE unless you add PGP.
+- id: tuta
+  name: Tuta Mail
+  category: email
+  platforms: [android, ios, linux, macos, windows, web]
+  jurisdiction: DE
+  url: https://tuta.com
+  criteria: [foss, e2ee, no-phone, audit]
+  why: Encrypted mailbox including subject lines, German jurisdiction, cheap.
+  warn: No IMAP. No Monero payment.
+- id: proton-mail
+  name: Proton Mail
+  category: email
+  platforms: [android, ios, linux, macos, windows, web]
+  jurisdiction: CH
+  url: https://proton.me/mail
+  criteria: [foss, e2ee, audit]
+  why: Largest encrypted provider, PGP-compatible, Swiss.
+  warn: Bridge needed for IMAP. Bitcoin and cash accepted, Monero not.
+- id: neromail
+  name: Neromail
+  category: email
+  platforms: [web]
+  jurisdiction: none
+  url: https://neromail.app
+  criteria: [no-account]
+  why: Throwaway inbox for signups you never want linked to you. Run by the author of this site.
+  warn: Trash mail only. Anyone guessing the address can read it.
+- id: addy
+  name: addy.io
+  category: email
+  platforms: [web, android]
+  jurisdiction: GB
+  url: https://addy.io
+  criteria: [foss, selfhost]
+  why: Unlimited aliases forwarding to your real box. Kill an alias when it leaks.
+  warn: Forwarder sees plaintext unless you enable PGP encryption.
