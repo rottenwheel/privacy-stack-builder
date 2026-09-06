@@ -40,6 +40,14 @@ tell them apart. A category can `waive` a criterion, which removes it from
 `required` and skips any group containing it; hosted search engines and
 mail services waive `foss` this way.
 
+## Presets
+
+Presets are curated by the author. "Recommended" is the sensible default for
+someone who does not yet know their threat model; the others trade
+convenience for anonymity or self-hosting in different proportions. Claude
+drafted the initial pool and presets; every entry was reviewed before it
+went live.
+
 ## Suggesting a tool
 
 Contributions happen on Codeberg: https://codeberg.org/schmidt1024/privacy-stack-builder

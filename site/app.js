@@ -151,6 +151,9 @@
   }
 
   // ---------- rendering ----------
+  function nameLink(t) {
+    return el("div", { class: "name" }, el("a", { href: t.url, target: "_blank", rel: "noopener noreferrer", title: t.url }, t.name));
+  }
   function badgeCrit(id) {
     const c = CRIT[id];
     return el("span", { class: "badge", title: c.desc }, `${c.icon} ${c.label}`);
@@ -217,7 +220,7 @@
         "li",
         { class: "pick" + (i === 0 ? " primary" : "") },
         el("span", { class: "rank" }, i === 0 ? "MAIN" : `ALT ${i}`),
-        el("div", null, el("div", { class: "name" }, t.name), el("div", { class: "meta" }, ...badgesFor(t))),
+        el("div", null, nameLink(t), el("div", { class: "meta" }, ...badgesFor(t))),
         el(
           "div",
           { class: "ctl" },
@@ -234,7 +237,7 @@
         el(
           "div",
           null,
-          el("div", { class: "name" }, t.name),
+          nameLink(t),
           el("p", { class: "why" }, t.why),
           t.warn && el("p", { class: "warn" }, "⚠ ", t.warn),
           el("div", { class: "meta" }, ...badgesFor(t), ...t.platforms.map((p) => el("span", { class: "badge plat" }, p)))

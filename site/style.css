@@ -70,6 +70,8 @@ select { font: inherit; background: var(--panel-2); color: var(--text); border: 
 .rank { font-family: var(--mono); font-size: .7rem; color: var(--muted); min-width: 2.6em; }
 .pick.primary .rank { color: var(--accent); }
 .pick .name { font-weight: 600; }
+.pick .name a, .cand .name a { color: inherit; text-decoration: none; }
+.pick .name a:hover, .cand .name a:hover { text-decoration: underline; color: var(--accent); }
 .pick .meta { display: flex; flex-wrap: wrap; gap: .25rem; margin-top: .15rem; }
 .pick .ctl { display: flex; gap: .25rem; }
 

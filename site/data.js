@@ -281,6 +281,102 @@ window.STACK_DATA = {
  },
  "presets": [
   {
+   "id": "recommended",
+   "label": "Recommended",
+   "icon": "⭐",
+   "desc": "Sensible default for most people. Start here if unsure.",
+   "picks": {
+    "mobile-os": [
+     "grapheneos"
+    ],
+    "messenger": [
+     "simplex",
+     "signal"
+    ],
+    "browser": [
+     "brave",
+     "tor-browser"
+    ],
+    "search": [
+     "brave-search"
+    ],
+    "network": [
+     "mullvad"
+    ],
+    "passwords": [
+     "keepassxc",
+     "keepassdx"
+    ],
+    "email": [
+     "tuta",
+     "addy"
+    ],
+    "wallet": [
+     "monerujo",
+     "feather"
+    ],
+    "notes": [
+     "joplin"
+    ],
+    "nostr": [
+     "amethyst"
+    ],
+    "editor": [
+     "vscodium"
+    ],
+    "scanner": [
+     "oss-document-scanner"
+    ],
+    "desktop-os": [
+     "debian"
+    ],
+    "2fa": [
+     "aegis"
+    ],
+    "files": [
+     "syncthing"
+    ],
+    "sharing": [
+     "localsend"
+    ],
+    "encryption": [
+     "age"
+    ],
+    "metadata": [
+     "exiferaser"
+    ],
+    "maps": [
+     "organic-maps"
+    ],
+    "appstore": [
+     "fdroid",
+     "obtainium"
+    ],
+    "keyboard": [
+     "heliboard"
+    ],
+    "blocking": [
+     "ublock"
+    ],
+    "media": [
+     "newpipe"
+    ],
+    "rss": [
+     "feeder"
+    ],
+    "mailclient": [
+     "thunderbird",
+     "fairemail"
+    ],
+    "backup": [
+     "restic"
+    ],
+    "ai": [
+     "ollama"
+    ]
+   }
+  },
+  {
    "id": "author",
    "label": "Author's stack 2026",
    "icon": "🧑‍💻",
