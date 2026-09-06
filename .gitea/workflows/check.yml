@@ -1,0 +1,37 @@
+# Admission check. Runs build.py on every pull request and on pushes to main.
+# The build exits non-zero when a tool fails data/policy.yaml, so a PR that
+# adds a non-compliant tool goes red. It also fails when site/data.js was not
+# rebuilt after a data change, so the committed site never drifts from data/.
+name: check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install pyyaml
+        run: pip install --disable-pip-version-check pyyaml
+
+      - name: Validate pool against policy and rebuild site/data.js
+        run: python3 build.py
+
+      - name: Fail if site/data.js is stale
+        run: |
+          if ! git diff --quiet -- site/data.js; then
+            echo "::error::site/data.js is out of date. Run 'python3 build.py' and commit the result."
+            git --no-pager diff --stat -- site/data.js
+            exit 1
+          fi
+
+      - name: Syntax-check site JavaScript
+        run: node --check site/app.js && node --check site/data.js
