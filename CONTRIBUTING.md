@@ -34,3 +34,8 @@ in the pull request or issue.
 - `warn` is one sentence on the trade-off. Almost every tool has one.
 - `jurisdiction` is the ISO code of the legal entity, or `none` for
   unincorporated projects. Ownership changes belong in `warn`.
+
+## License
+
+By contributing you agree that your changes are licensed like the rest of
+the project: code under AGPL-3.0-or-later, pool data under CC BY-SA 4.0.

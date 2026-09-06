@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: AGPL-3.0-or-later */
 /* Privacy Stack Builder. Plain JS, no dependencies, no network. */
 (function () {
   "use strict";
