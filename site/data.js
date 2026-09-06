@@ -378,9 +378,9 @@ window.STACK_DATA = {
   },
   {
    "id": "author",
-   "label": "Author's stack 2026",
+   "label": "Author's stack",
    "icon": "🧑‍💻",
-   "desc": "The pinned X post, verbatim.",
+   "desc": "What the author actually runs.",
    "picks": {
     "mobile-os": [
      "grapheneos"
@@ -437,6 +437,37 @@ window.STACK_DATA = {
     ],
     "desktop-os": [
      "ubuntu-debloated"
+    ],
+    "2fa": [
+     "aegis"
+    ],
+    "files": [
+     "syncthing",
+     "nextcloud"
+    ],
+    "sharing": [
+     "localsend"
+    ],
+    "maps": [
+     "comaps"
+    ],
+    "appstore": [
+     "fdroid",
+     "aurora",
+     "obtainium"
+    ],
+    "keyboard": [
+     "futo-keyboard"
+    ],
+    "blocking": [
+     "ublock"
+    ],
+    "media": [
+     "newpipe",
+     "grayjay"
+    ],
+    "mailclient": [
+     "fairemail"
     ]
    }
   },
