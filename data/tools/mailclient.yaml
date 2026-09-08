@@ -25,3 +25,12 @@
   criteria: [foss, e2ee, no-telemetry, offline]
   why: "Privacy-first Android client: blocks tracking pixels, reformats mail, PGP and S/MIME."
   warn: Dense settings. Some features behind a small one-time payment.
+- id: claws-mail
+  name: Claws Mail
+  category: mailclient
+  platforms: [linux, windows]
+  jurisdiction: none
+  url: https://www.claws-mail.org
+  criteria: [foss, e2ee, no-telemetry, offline]
+  why: Lightweight, fast and stable; PGP and S/MIME via bundled plugins, any IMAP or POP account.
+  warn: Plain-text by default, HTML mail needs the Fancy plugin. Dated GTK interface.

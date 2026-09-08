@@ -34,3 +34,12 @@
   criteria: [foss, no-phone, no-account]
   why: Polished client with built-in caching relay, easy onboarding for newcomers.
   warn: Built-in wallet is custodial. Caching service sees what you read.
+- id: nostrudel
+  name: noStrudel
+  category: nostr
+  platforms: [web]
+  jurisdiction: none
+  url: https://nostrudel.ninja
+  criteria: [foss, no-phone, no-account, selfhost]
+  why: Power-user web client that exposes relays, events and NIPs directly; Docker image for self-hosting.
+  warn: Web app; use a browser extension signer, never paste your nsec.

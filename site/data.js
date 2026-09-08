@@ -1360,6 +1360,24 @@ window.STACK_DATA = {
    "warn": "Runs inside VirtualBox, KVM or Qubes. Not a daily-driver OS."
   },
   {
+   "id": "nixos",
+   "name": "NixOS",
+   "category": "desktop-os",
+   "platforms": [
+    "linux"
+   ],
+   "jurisdiction": "NL",
+   "url": "https://nixos.org",
+   "criteria": [
+    "foss",
+    "no-account",
+    "no-telemetry",
+    "repro"
+   ],
+   "why": "Declarative, reproducible system config; roll back any change, rebuild any machine from one file.",
+   "warn": "Steep learning curve, expect to read Nix code."
+  },
+  {
    "id": "vscodium",
    "name": "VSCodium",
    "category": "editor",
@@ -1912,6 +1930,25 @@ window.STACK_DATA = {
    ],
    "why": "Privacy-first Android client: blocks tracking pixels, reformats mail, PGP and S/MIME.",
    "warn": "Dense settings. Some features behind a small one-time payment."
+  },
+  {
+   "id": "claws-mail",
+   "name": "Claws Mail",
+   "category": "mailclient",
+   "platforms": [
+    "linux",
+    "windows"
+   ],
+   "jurisdiction": "none",
+   "url": "https://www.claws-mail.org",
+   "criteria": [
+    "foss",
+    "e2ee",
+    "no-telemetry",
+    "offline"
+   ],
+   "why": "Lightweight, fast and stable; PGP and S/MIME via bundled plugins, any IMAP or POP account.",
+   "warn": "Plain-text by default, HTML mail needs the Fancy plugin. Dated GTK interface."
   },
   {
    "id": "organic-maps",
@@ -2625,6 +2662,24 @@ window.STACK_DATA = {
    ],
    "why": "Polished client with built-in caching relay, easy onboarding for newcomers.",
    "warn": "Built-in wallet is custodial. Caching service sees what you read."
+  },
+  {
+   "id": "nostrudel",
+   "name": "noStrudel",
+   "category": "nostr",
+   "platforms": [
+    "web"
+   ],
+   "jurisdiction": "none",
+   "url": "https://nostrudel.ninja",
+   "criteria": [
+    "foss",
+    "no-phone",
+    "no-account",
+    "selfhost"
+   ],
+   "why": "Power-user web client that exposes relays, events and NIPs directly; Docker image for self-hosting.",
+   "warn": "Web app; use a browser extension signer, never paste your nsec."
   },
   {
    "id": "joplin",
